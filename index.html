@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>heyhey - 公式ポートフォリオサイト</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#B4D455',
+                        'kimono-black': '#1A1A1A',
+                        'pure-white': '#FFFFFF',
+                        'accent-gold': '#D8B25F',
+                        'accent-pink': '#F4A7B9'
+                    },
+                    fontFamily: {
+                        'zen': ['Zen Kaku Gothic Antique', 'sans-serif'],
+                        'noto': ['Noto Sans JP', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700&family=Noto+Sans+JP:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-noto bg-pure-white">
+    <!-- ヘッダー -->
+    <header class="bg-pure-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="/assets/images/logo.png" alt="heyhey Logo" class="h-8 w-auto">
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="about.html" class="text-kimono-black hover:text-brand-green transition-colors">詳細プロフィール</a>
+                    <a href="blog.html" class="text-kimono-black hover:text-brand-green transition-colors">ブログ</a>
+                    <a href="contact.html" class="text-kimono-black hover:text-brand-green transition-colors">お問い合わせ</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-kimono-black focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-pure-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="about.html" class="block px-3 py-2 text-kimono-black hover:text-brand-green transition-colors">詳細プロフィール</a>
+                <a href="blog.html" class="block px-3 py-2 text-kimono-black hover:text-brand-green transition-colors">ブログ</a>
+                <a href="contact.html" class="block px-3 py-2 text-kimono-black hover:text-brand-green transition-colors">お問い合わせ</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
+        <!-- YouTube側 -->
+        <div class="bg-brand-green flex items-center justify-center py-16 lg:py-0">
+            <div class="text-center px-8">
+                <div class="mb-8">
+                    <img src="/assets/images/youtube-thumbnail.jpg" alt="YouTube チャンネル" class="w-80 h-48 mx-auto object-cover rounded-lg shadow-lg">
+                </div>
+                <h2 class="font-zen text-3xl md:text-4xl font-bold text-kimono-black mb-4">heyheysのYouTubeチャンネル</h2>
+                <p class="text-kimono-black text-lg mb-8 max-w-md mx-auto">
+                    最新の技術情報やライフハックを発信しています。毎週新しい動画をアップロードしています。
+                </p>
+                <a href="https://youtube.com/@heyhey" target="_blank" rel="noopener noreferrer" class="inline-block bg-kimono-black text-pure-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-medium">
+                    チャンネルを見る
+                </a>
+            </div>
+        </div>
+
+        <!-- 吟猫道場側 -->
+        <div class="bg-kimono-black flex items-center justify-center py-16 lg:py-0">
+            <div class="text-center px-8">
+                <div class="mb-8">
+                    <img src="/assets/images/dojo-visual.jpg" alt="吟猫道場" class="w-80 h-48 mx-auto object-cover rounded-lg shadow-lg">
+                </div>
+                <h2 class="font-zen text-3xl md:text-4xl font-bold text-pure-white mb-4">吟猫道場</h2>
+                <p class="text-pure-white text-lg mb-8 max-w-md mx-auto">
+                    オンラインで学べる最新のスキルアップ講座。実践的な内容で、あなたの成長をサポートします。
+                </p>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent-gold text-kimono-black px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-medium">
+                    オンライン教室へ
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kindle書籍セクション -->
+    <section class="py-16 bg-pure-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-zen text-3xl md:text-4xl font-bold text-kimono-black mb-4">Kindle書籍</h2>
+                <p class="text-gray-600 text-lg">最新の著書をご紹介します</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- 書籍カード1 -->
+                <div class="bg-white border rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="/assets/images/book1.jpg" alt="書籍1" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">実践的なプログラミング入門</h3>
+                        <p class="text-gray-600 mb-4">初心者でも分かりやすく、実際に使えるスキルが身につく入門書です。</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent-gold text-kimono-black text-center py-2 rounded-md hover:bg-opacity-90 transition-colors font-medium">
+                            Amazonで購入
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 書籍カード2 -->
+                <div class="bg-white border rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="/assets/images/book2.jpg" alt="書籍2" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">効率的な学習法</h3>
+                        <p class="text-gray-600 mb-4">短時間で最大の効果を得るための学習メソッドを公開しています。</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent-gold text-kimono-black text-center py-2 rounded-md hover:bg-opacity-90 transition-colors font-medium">
+                            Amazonで購入
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 書籍カード3 -->
+                <div class="bg-white border rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="/assets/images/book3.jpg" alt="書籍3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">デジタル時代の働き方</h3>
+                        <p class="text-gray-600 mb-4">リモートワークや副業など、新しい働き方について詳しく解説しています。</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent-gold text-kimono-black text-center py-2 rounded-md hover:bg-opacity-90 transition-colors font-medium">
+                            Amazonで購入
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
+                    すべての書籍を見る →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 活動一覧セクション -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-zen text-3xl md:text-4xl font-bold text-kimono-black mb-4">その他の活動</h2>
+                <p class="text-gray-600 text-lg">様々なプラットフォームで活動しています</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- note -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">note</h3>
+                        <p class="text-gray-600 mb-4">技術記事や日常の気づきを発信しています。</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
+                            詳細を見る →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Suno -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-accent-pink rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 2.5l6.5 6.5H17v6H7v-6H5.5L12 5.5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">Suno</h3>
+                        <p class="text-gray-600 mb-4">音楽制作やオーディオコンテンツを発信しています。</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
+                            詳細を見る →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Podcast -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-accent-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-12.5c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">Podcast</h3>
+                        <p class="text-gray-600 mb-4">最新の話題や深い議論を音声で配信しています。</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
+                            詳細を見る →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- コミュニティ -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-kimono-black rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-4h3v4h2v-7.5c0-1.1.9-2 2-2s2 .9 2 2V18h2v-4h3v4h2V8.5c0-1.1-.9-2-2-2h-7c-1.1 0-2 .9-2 2V18H4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">コミュニティ</h3>
+                        <p class="text-gray-600 mb-4">学習者同士が交流できるオンラインコミュニティを運営しています。</p>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
+                            詳細を見る →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最新情報セクション -->
+    <section class="py-16 bg-pure-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-zen text-3xl md:text-4xl font-bold text-kimono-black mb-4">最新情報</h2>
+                <p class="text-gray-600 text-lg">最新の動画をチェックしてください</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">
+                    <iframe 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen
+                        class="w-full h-full">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="bg-kimono-black text-pure-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center">
+                <div class="flex space-x-6 mb-6">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="text-pure-white hover:text-brand-green transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="text-pure-white hover:text-brand-green transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 5.5 4.46 9.96 9.96 9.96 5.5 0 9.96-4.46 9.96-9.96 0-5.5-4.46-9.96-9.96-9.96zm4.43 7.45c.02.2.02.4.02.61 0 6.19-4.71 13.33-13.33 13.33-2.65 0-5.11-.78-7.18-2.11.37.04.74.06 1.12.06 2.18 0 4.18-.74 5.77-1.98-2.04-.04-3.76-1.38-4.35-3.22.29.06.58.09.88.09.42 0 .83-.06 1.22-.16-2.13-.43-3.73-2.31-3.73-4.57v-.06c.63.35 1.35.56 2.11.58-.125-.85-.2-1.73-.2-2.64 0-1.01.27-1.96.74-2.77 2.3 2.82 5.73 4.67 9.61 4.87-.08-.35-.12-.71-.12-1.08 0-2.61 2.11-4.72 4.72-4.72 1.36 0 2.59.57 3.45 1.49 1.08-.21 2.09-.6 3-.114-.35 1.1-1.1 2.02-2.07 2.6.96-.11 1.88-.36 2.73-.73-.64.95-1.45 1.78-2.38 2.45z"/>
+                        </svg>
+                    </a>
+                </div>
+                <p class="text-center text-gray-400">© 2025 heyhey. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // モバイルメニューの切り替え
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

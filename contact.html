@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ - heyhey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#B4D455',
+                        'kimono-black': '#1A1A1A',
+                        'pure-white': '#FFFFFF',
+                        'accent-gold': '#D8B25F',
+                        'accent-pink': '#F4A7B9'
+                    },
+                    fontFamily: {
+                        'zen': ['Zen Kaku Gothic Antique', 'sans-serif'],
+                        'noto': ['Noto Sans JP', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700&family=Noto+Sans+JP:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-noto bg-gray-50">
+    <!-- ヘッダー -->
+    <header class="bg-pure-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="/assets/images/logo.png" alt="heyhey Logo" class="h-8 w-auto">
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="about.html" class="text-kimono-black hover:text-brand-green transition-colors">詳細プロフィール</a>
+                    <a href="blog.html" class="text-kimono-black hover:text-brand-green transition-colors">ブログ</a>
+                    <a href="contact.html" class="text-brand-green font-medium">お問い合わせ</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-kimono-black focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-pure-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="about.html" class="block px-3 py-2 text-kimono-black hover:text-brand-green transition-colors">詳細プロフィール</a>
+                <a href="blog.html" class="block px-3 py-2 text-kimono-black hover:text-brand-green transition-colors">ブログ</a>
+                <a href="contact.html" class="block px-3 py-2 text-brand-green font-medium">お問い合わせ</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- ヘッダー -->
+            <div class="text-center mb-12">
+                <h1 class="font-zen text-4xl md:text-5xl font-bold text-kimono-black mb-4">お問い合わせ</h1>
+                <p class="text-gray-600 text-lg">ご質問やご相談がございましたら、お気軽にお問い合わせください</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- お問い合わせフォーム -->
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <h2 class="font-zen text-2xl font-bold text-kimono-black mb-6">お問い合わせフォーム</h2>
+                    <form id="contact-form" class="space-y-6">
+                        <!-- お名前 -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-kimono-black mb-2">
+                                お名前 <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                required 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors"
+                                placeholder="山田 太郎"
+                            >
+                        </div>
+
+                        <!-- メールアドレス -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-kimono-black mb-2">
+                                メールアドレス <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors"
+                                placeholder="example@email.com"
+                            >
+                        </div>
+
+                        <!-- 件名 -->
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-kimono-black mb-2">
+                                件名 <span class="text-red-500">*</span>
+                            </label>
+                            <select 
+                                id="subject" 
+                                name="subject" 
+                                required 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors"
+                            >
+                                <option value="">選択してください</option>
+                                <option value="講演依頼">講演依頼</option>
+                                <option value="研修相談">研修相談</option>
+                                <option value="コラボレーション">コラボレーション</option>
+                                <option value="メディア取材">メディア取材</option>
+                                <option value="書籍について">書籍について</option>
+                                <option value="YouTubeについて">YouTubeについて</option>
+                                <option value="その他">その他</option>
+                            </select>
+                        </div>
+
+                        <!-- お問い合わせ内容 -->
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-kimono-black mb-2">
+                                お問い合わせ内容 <span class="text-red-500">*</span>
+                            </label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                required 
+                                rows="6" 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors resize-vertical"
+                                placeholder="お問い合わせ内容を詳しくお聞かせください"
+                            ></textarea>
+                        </div>
+
+                        <!-- 送信ボタン -->
+                        <div>
+                            <button 
+                                type="submit" 
+                                class="w-full bg-brand-green text-kimono-black py-4 px-6 rounded-lg hover:bg-opacity-90 transition-colors font-medium text-lg"
+                            >
+                                送信する
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- 連絡先情報とその他の情報 -->
+                <div class="space-y-8">
+                    <!-- 連絡先情報 -->
+                    <div class="bg-white rounded-lg shadow-md p-8">
+                        <h2 class="font-zen text-2xl font-bold text-kimono-black mb-6">連絡先情報</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0">
+                                    <svg class="w-6 h-6 text-brand-green mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-kimono-black">メールアドレス</h3>
+                                    <p class="text-gray-600">contact@heyhey.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0">
+                                    <svg class="w-6 h-6 text-brand-green mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-kimono-black">対応時間</h3>
+                                    <p class="text-gray-600">平日 9:00 - 18:00</p>
+                                    <p class="text-gray-600 text-sm">（土日祝日は対応しておりません）</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- よくあるお問い合わせ -->
+                    <div class="bg-white rounded-lg shadow-md p-8">
+                        <h2 class="font-zen text-2xl font-bold text-kimono-black mb-6">よくあるお問い合わせ</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="font-medium text-kimono-black mb-2">講演依頼について</h3>
+                                <p class="text-gray-600 text-sm">
+                                    講演のご依頼は、開催日の2ヶ月前までにお問い合わせください。料金や詳細については個別にご相談いたします。
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-kimono-black mb-2">研修について</h3>
+                                <p class="text-gray-600 text-sm">
+                                    企業向けの研修プログラムをご用意しております。オンライン・オフライン両方対応可能です。
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-kimono-black mb-2">書籍について</h3>
+                                <p class="text-gray-600 text-sm">
+                                    書籍に関するご質問は、出版社を通じてお答えする場合がございます。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SNSリンク -->
+                    <div class="bg-white rounded-lg shadow-md p-8">
+                        <h2 class="font-zen text-2xl font-bold text-kimono-black mb-6">SNSで繋がりましょう</h2>
+                        <div class="flex space-x-4">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-12 h-12 bg-brand-green rounded-full text-kimono-black hover:bg-opacity-90 transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                </svg>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-12 h-12 bg-accent-gold rounded-full text-kimono-black hover:bg-opacity-90 transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 5.5 4.46 9.96 9.96 9.96 5.5 0 9.96-4.46 9.96-9.96 0-5.5-4.46-9.96-9.96-9.96zm4.43 7.45c.02.2.02.4.02.61 0 6.19-4.71 13.33-13.33 13.33-2.65 0-5.11-.78-7.18-2.11.37.04.74.06 1.12.06 2.18 0 4.18-.74 5.77-1.98-2.04-.04-3.76-1.38-4.35-3.22.29.06.58.09.88.09.42 0 .83-.06 1.22-.16-2.13-.43-3.73-2.31-3.73-4.57v-.06c.63.35 1.35.56 2.11.58-.125-.85-.2-1.73-.2-2.64 0-1.01.27-1.96.74-2.77 2.3 2.82 5.73 4.67 9.61 4.87-.08-.35-.12-.71-.12-1.08 0-2.61 2.11-4.72 4.72-4.72 1.36 0 2.59.57 3.45 1.49 1.08-.21 2.09-.6 3-.114-.35 1.1-1.1 2.02-2.07 2.6.96-.11 1.88-.36 2.73-.73-.64.95-1.45 1.78-2.38 2.45z"/>
+                                </svg>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-12 h-12 bg-accent-pink rounded-full text-kimono-black hover:bg-opacity-90 transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                </svg>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-12 h-12 bg-red-500 rounded-full text-white hover:bg-opacity-90 transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.498 6.186a2.985 2.985 0 00-2.106-2.106C19.504 3.546 12 3.546 12 3.546s-7.504 0-9.392.534A2.985 2.985 0 00.502 6.186C0 8.074 0 12 0 12s0 3.926.502 5.814a2.985 2.985 0 002.106 2.106c1.888.534 9.392.534 9.392.534s7.504 0 9.392-.534a2.985 2.985 0 002.106-2.106C24 15.926 24 12 24 12s0-3.926-.502-5.814zM9.546 15.569V8.431L15.818 12l-6.272 3.569z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-kimono-black text-pure-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center">
+                <div class="flex space-x-6 mb-6">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="text-pure-white hover:text-brand-green transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="text-pure-white hover:text-brand-green transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 5.5 4.46 9.96 9.96 9.96 5.5 0 9.96-4.46 9.96-9.96 0-5.5-4.46-9.96-9.96-9.96zm4.43 7.45c.02.2.02.4.02.61 0 6.19-4.71 13.33-13.33 13.33-2.65 0-5.11-.78-7.18-2.11.37.04.74.06 1.12.06 2.18 0 4.18-.74 5.77-1.98-2.04-.04-3.76-1.38-4.35-3.22.29.06.58.09.88.09.42 0 .83-.06 1.22-.16-2.13-.43-3.73-2.31-3.73-4.57v-.06c.63.35 1.35.56 2.11.58-.125-.85-.2-1.73-.2-2.64 0-1.01.27-1.96.74-2.77 2.3 2.82 5.73 4.67 9.61 4.87-.08-.35-.12-.71-.12-1.08 0-2.61 2.11-4.72 4.72-4.72 1.36 0 2.59.57 3.45 1.49 1.08-.21 2.09-.6 3-.114-.35 1.1-1.1 2.02-2.07 2.6.96-.11 1.88-.36 2.73-.73-.64.95-1.45 1.78-2.38 2.45z"/>
+                        </svg>
+                    </a>
+                </div>
+                <p class="text-center text-gray-400">© 2025 heyhey. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // モバイルメニューの切り替え
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // フォーム送信処理
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // 簡単なバリデーション
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            if (!name || !email || !subject || !message) {
+                alert('すべての必須項目を入力してください。');
+                return;
+            }
+            
+            // 実際のフォーム送信処理はここに実装
+            alert('お問い合わせありがとうございます。2営業日以内にご返信いたします。');
+            
+            // フォームリセット
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
