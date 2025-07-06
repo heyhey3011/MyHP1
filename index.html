@@ -30,7 +30,7 @@
 </head>
 <body class="font-noto bg-pure-white">
     <!-- ヘッダー -->
-    <header class="bg-pure-white shadow-sm">
+    <header class="bg-pure-white fixed top-0 w-full z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
@@ -62,35 +62,35 @@
     </header>
 
     <!-- ヒーローセクション -->
-    <section class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
+    <section class="grid grid-cols-1 lg:grid-cols-2 min-h-screen pt-16">
         <!-- YouTube側 -->
-        <div class="bg-brand-green flex items-center justify-center py-16 lg:py-0">
+        <div class="bg-brand-green flex items-center justify-center py-16 lg:py-0 group">
             <div class="text-center px-8">
-                <div class="mb-8">
-                    <img src="/assets/images/youtube-thumbnail.jpg" alt="YouTube チャンネル" class="w-80 h-48 mx-auto object-cover rounded-lg shadow-lg">
+                <div class="mb-8 overflow-hidden rounded-lg shadow-xl">
+                    <img src="/assets/images/youtube-thumbnail.jpg" alt="YouTube チャンネル" class="w-80 h-48 mx-auto object-cover group-hover:scale-105 transition-transform duration-300">
                 </div>
-                <h2 class="font-zen text-3xl md:text-4xl font-bold text-kimono-black mb-4">heyheysのYouTubeチャンネル</h2>
-                <p class="text-kimono-black text-lg mb-8 max-w-md mx-auto">
-                    最新の技術情報やライフハックを発信しています。毎週新しい動画をアップロードしています。
+                <h2 class="font-zen text-4xl md:text-5xl font-black text-kimono-black mb-4">詩吟チャンネル</h2>
+                <p class="text-kimono-black/80 text-lg mb-8 max-w-md mx-auto">
+                    25年の経験と500本の動画で届ける<br>唯一無二の"声と言葉"の世界。
                 </p>
-                <a href="https://youtube.com/@heyhey" target="_blank" rel="noopener noreferrer" class="inline-block bg-kimono-black text-pure-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-medium">
+                <a href="https://www.youtube.com/channel/UCerBISByAKR3KU9CD9Tz5ZQ" target="_blank" rel="noopener noreferrer" class="inline-block bg-kimono-black text-pure-white px-10 py-3 rounded-full hover:bg-opacity-80 transition-all transform hover:scale-105 font-bold">
                     チャンネルを見る
                 </a>
             </div>
         </div>
 
         <!-- 吟猫道場側 -->
-        <div class="bg-kimono-black flex items-center justify-center py-16 lg:py-0">
+        <div class="bg-kimono-black flex items-center justify-center py-16 lg:py-0 group">
             <div class="text-center px-8">
-                <div class="mb-8">
-                    <img src="/assets/images/dojo-visual.jpg" alt="吟猫道場" class="w-80 h-48 mx-auto object-cover rounded-lg shadow-lg">
+                <div class="mb-8 overflow-hidden rounded-lg shadow-xl">
+                    <img src="/assets/images/dojo-visual.jpg" alt="吟猫道場" class="w-80 h-48 mx-auto object-cover group-hover:scale-105 transition-transform duration-300">
                 </div>
-                <h2 class="font-zen text-3xl md:text-4xl font-bold text-pure-white mb-4">吟猫道場</h2>
-                <p class="text-pure-white text-lg mb-8 max-w-md mx-auto">
-                    オンラインで学べる最新のスキルアップ講座。実践的な内容で、あなたの成長をサポートします。
+                <h2 class="font-zen text-4xl md:text-5xl font-black text-pure-white mb-4">オンライン吟猫道場</h2>
+                <p class="text-pure-white/80 text-lg mb-8 max-w-md mx-auto">
+                    いつでも、どこでも。自分のペースで<br>詩吟の奥深い世界を学ぶ。
                 </p>
-                <a href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent-gold text-kimono-black px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-medium">
-                    オンライン教室へ
+                <a href="https://shigin.net/p/r/cbWMf1ve" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent-gold text-kimono-black px-10 py-3 rounded-full hover:bg-opacity-80 transition-all transform hover:scale-105 font-bold">
+                    詩吟メルマガへ
                 </a>
             </div>
         </div>
@@ -99,43 +99,42 @@
     <!-- Kindle書籍セクション -->
     <section class="py-16 bg-pure-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="font-zen text-3xl md:text-4xl font-bold text-kimono-black mb-4">Kindle書籍</h2>
-                <p class="text-gray-600 text-lg">最新の著書をご紹介します</p>
+            <div class="text-center mb-16">
+                <h2 class="font-zen text-4xl font-bold text-kimono-black">Kindle書籍</h2>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div class="flex space-x-6 md:space-x-0 md:grid md:grid-cols-3 md:gap-8 mb-12 overflow-x-auto snap-x snap-mandatory pb-4">
                 <!-- 書籍カード1 -->
-                <div class="bg-white border rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="flex-none w-10/12 md:w-auto snap-center bg-white border rounded-lg shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                     <img src="/assets/images/book1.jpg" alt="書籍1" class="w-full h-64 object-cover">
                     <div class="p-6">
-                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">実践的なプログラミング入門</h3>
-                        <p class="text-gray-600 mb-4">初心者でも分かりやすく、実際に使えるスキルが身につく入門書です。</p>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent-gold text-kimono-black text-center py-2 rounded-md hover:bg-opacity-90 transition-colors font-medium">
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">自分の声に自信が持てる!!本当の腹式呼吸</h3>
+                        <p class="text-gray-600 mb-4 h-16">声に自信が持てないあなたへ。本当の腹式呼吸をマスターして、美しい声を手に入れましょう。</p>
+                        <a href="https://amzn.to/3uMn6QC" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent-gold text-kimono-black text-center py-2 rounded-md hover:bg-opacity-90 transition-colors font-medium">
                             Amazonで購入
                         </a>
                     </div>
                 </div>
 
                 <!-- 書籍カード2 -->
-                <div class="bg-white border rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="flex-none w-10/12 md:w-auto snap-center bg-white border rounded-lg shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                     <img src="/assets/images/book2.jpg" alt="書籍2" class="w-full h-64 object-cover">
                     <div class="p-6">
-                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">効率的な学習法</h3>
-                        <p class="text-gray-600 mb-4">短時間で最大の効果を得るための学習メソッドを公開しています。</p>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent-gold text-kimono-black text-center py-2 rounded-md hover:bg-opacity-90 transition-colors font-medium">
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">詩吟の教科書－初心者編－</h3>
+                        <p class="text-gray-600 mb-4 h-16">詩吟を始めたい人のための完全ガイド。基本から丁寧に解説しています。</p>
+                        <a href="https://amzn.to/3Mkz5Oe" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent-gold text-kimono-black text-center py-2 rounded-md hover:bg-opacity-90 transition-colors font-medium">
                             Amazonで購入
                         </a>
                     </div>
                 </div>
 
                 <!-- 書籍カード3 -->
-                <div class="bg-white border rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="flex-none w-10/12 md:w-auto snap-center bg-white border rounded-lg shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                     <img src="/assets/images/book3.jpg" alt="書籍3" class="w-full h-64 object-cover">
                     <div class="p-6">
-                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">デジタル時代の働き方</h3>
-                        <p class="text-gray-600 mb-4">リモートワークや副業など、新しい働き方について詳しく解説しています。</p>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent-gold text-kimono-black text-center py-2 rounded-md hover:bg-opacity-90 transition-colors font-medium">
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">詩吟の教科書－入門編－</h3>
+                        <p class="text-gray-600 mb-4 h-16">詩吟の世界をもっと深く知りたい方へ。実践的な内容で上達を目指しましょう。</p>
+                        <a href="https://amzn.to/43hkDP6" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent-gold text-kimono-black text-center py-2 rounded-md hover:bg-opacity-90 transition-colors font-medium">
                             Amazonで購入
                         </a>
                     </div>
@@ -143,7 +142,7 @@
             </div>
 
             <div class="text-center">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="font-medium text-accent-gold hover:text-kimono-black transition-colors">
                     すべての書籍を見る →
                 </a>
             </div>
@@ -151,16 +150,15 @@
     </section>
 
     <!-- 活動一覧セクション -->
-    <section class="py-16 bg-gray-50">
+    <section class="py-24 bg-pure-white border-t">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="font-zen text-3xl md:text-4xl font-bold text-kimono-black mb-4">その他の活動</h2>
-                <p class="text-gray-600 text-lg">様々なプラットフォームで活動しています</p>
+            <div class="text-center mb-16">
+                <h2 class="font-zen text-4xl font-bold text-kimono-black">その他の活動</h2>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- note -->
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -168,15 +166,15 @@
                             </svg>
                         </div>
                         <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">note</h3>
-                        <p class="text-gray-600 mb-4">技術記事や日常の気づきを発信しています。</p>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
+                        <p class="text-gray-600 mb-4">詩吟に関する想いや日常の気づきを発信しています。</p>
+                        <a href="https://note.com/shigispel" target="_blank" rel="noopener noreferrer" class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
                             詳細を見る →
                         </a>
                     </div>
                 </div>
 
                 <!-- Suno -->
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-accent-pink rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -184,15 +182,15 @@
                             </svg>
                         </div>
                         <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">Suno</h3>
-                        <p class="text-gray-600 mb-4">音楽制作やオーディオコンテンツを発信しています。</p>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
+                        <p class="text-gray-600 mb-4">AIを使った詩吟楽曲を制作。代表作「富士山」などを発信しています。</p>
+                        <a href="https://suno.com/me" target="_blank" rel="noopener noreferrer" class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
                             詳細を見る →
                         </a>
                     </div>
                 </div>
 
                 <!-- Podcast -->
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-accent-gold rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -200,24 +198,24 @@
                             </svg>
                         </div>
                         <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">Podcast</h3>
-                        <p class="text-gray-600 mb-4">最新の話題や深い議論を音声で配信しています。</p>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
+                        <p class="text-gray-600 mb-4">詩吟や日常の話題をstand.fmで音声配信しています。</p>
+                        <a href="https://stand.fm/channels/5f18a737907968e29d7a6b68" target="_blank" rel="noopener noreferrer" class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
                             詳細を見る →
                         </a>
                     </div>
                 </div>
 
                 <!-- コミュニティ -->
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-kimono-black rounded-full flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-4h3v4h2v-7.5c0-1.1.9-2 2-2s2 .9 2 2V18h2v-4h3v4h2V8.5c0-1.1-.9-2-2-2h-7c-1.1 0-2 .9-2 2V18H4z"/>
                             </svg>
                         </div>
-                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">コミュニティ</h3>
-                        <p class="text-gray-600 mb-4">学習者同士が交流できるオンラインコミュニティを運営しています。</p>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">詩吟メルマガ</h3>
+                        <p class="text-gray-600 mb-4">詩吟の学習に役立つ情報やコツを定期的にお届けしています。</p>
+                        <a href="https://shigin.net/p/r/cbWMf1ve" target="_blank" rel="noopener noreferrer" class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
                             詳細を見る →
                         </a>
                     </div>
@@ -257,12 +255,17 @@
                 <div class="flex space-x-6 mb-6">
                     <a href="#" target="_blank" rel="noopener noreferrer" class="text-pure-white hover:text-brand-green transition-colors">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                         </svg>
                     </a>
                     <a href="#" target="_blank" rel="noopener noreferrer" class="text-pure-white hover:text-brand-green transition-colors">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 5.5 4.46 9.96 9.96 9.96 5.5 0 9.96-4.46 9.96-9.96 0-5.5-4.46-9.96-9.96-9.96zm4.43 7.45c.02.2.02.4.02.61 0 6.19-4.71 13.33-13.33 13.33-2.65 0-5.11-.78-7.18-2.11.37.04.74.06 1.12.06 2.18 0 4.18-.74 5.77-1.98-2.04-.04-3.76-1.38-4.35-3.22.29.06.58.09.88.09.42 0 .83-.06 1.22-.16-2.13-.43-3.73-2.31-3.73-4.57v-.06c.63.35 1.35.56 2.11.58-.125-.85-.2-1.73-.2-2.64 0-1.01.27-1.96.74-2.77 2.3 2.82 5.73 4.67 9.61 4.87-.08-.35-.12-.71-.12-1.08 0-2.61 2.11-4.72 4.72-4.72 1.36 0 2.59.57 3.45 1.49 1.08-.21 2.09-.6 3-.114-.35 1.1-1.1 2.02-2.07 2.6.96-.11 1.88-.36 2.73-.73-.64.95-1.45 1.78-2.38 2.45z"/>
+                            <path d="M18.13 12.5c0-.74-.34-1.4-.87-1.85l-4.77-4.24c-.9-.8-2.27-.8-3.17 0l-4.77 4.24c-.53.45-.87 1.11-.87 1.85v7.5c0 .83.67 1.5 1.5 1.5h3c.83 0 1.5-.67 1.5-1.5v-3c0-.55.45-1 1-1h2c.55 0 1 .45 1 1v3c0 .83.67 1.5 1.5 1.5h3c.83 0 1.5-.67 1.5-1.5v-7.5z"/>
+                        </svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="text-pure-white hover:text-brand-green transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                         </svg>
                     </a>
                 </div>
@@ -278,6 +281,16 @@
         
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // スクロール時のヘッダー効果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-lg', 'bg-pure-white/80', 'backdrop-blur-sm');
+            } else {
+                header.classList.remove('shadow-lg', 'bg-pure-white/80', 'backdrop-blur-sm');
+            }
         });
     </script>
 </body>
