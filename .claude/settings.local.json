@@ -8,7 +8,9 @@
       "Bash(rm:*)",
       "Bash(git remote:*)",
       "Bash(git push:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(git pull:*)",
+      "Bash(git stash:*)"
     ],
     "deny": []
   }
