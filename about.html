@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>詳細プロフィール - heyhey</title>
+    <title>詩吟への想いと活動について - heyhey</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -35,12 +35,13 @@
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
                     <a href="index.html" class="flex items-center">
-                        <img src="/assets/images/logo.png" alt="heyhey Logo" class="h-8 w-auto">
+                        <img src="必要画像/吟ねこ.jpg" alt="heyhey Logo" class="h-8 w-8 rounded-full object-cover">
+                        <span class="font-zen font-bold text-kimono-black ml-3">heyheyのホームページ</span>
                     </a>
                 </div>
                 <nav class="hidden md:flex space-x-8">
                     <a href="about.html" class="text-brand-green font-medium">詳細プロフィール</a>
-                    <a href="blog.html" class="text-kimono-black hover:text-brand-green transition-colors">ブログ</a>
+                    <a href="blog.html" class="text-kimono-black hover:text-brand-green transition-colors">個人ブログ</a>
                     <a href="contact.html" class="text-kimono-black hover:text-brand-green transition-colors">お問い合わせ</a>
                 </nav>
                 <div class="md:hidden">
@@ -55,7 +56,7 @@
         <div id="mobile-menu" class="hidden md:hidden bg-pure-white border-t">
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <a href="about.html" class="block px-3 py-2 text-brand-green font-medium">詳細プロフィール</a>
-                <a href="blog.html" class="block px-3 py-2 text-kimono-black hover:text-brand-green transition-colors">ブログ</a>
+                <a href="blog.html" class="block px-3 py-2 text-kimono-black hover:text-brand-green transition-colors">個人ブログ</a>
                 <a href="contact.html" class="block px-3 py-2 text-kimono-black hover:text-brand-green transition-colors">お問い合わせ</a>
             </div>
         </div>
@@ -66,124 +67,57 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- ヘッダー -->
             <div class="text-center mb-12">
-                <h1 class="font-zen text-4xl md:text-5xl font-bold text-kimono-black mb-4">詳細プロフィール</h1>
-                <p class="text-gray-600 text-lg">heyheyの詳しいプロフィールと活動理念をご紹介します</p>
+                <h1 class="font-zen text-4xl md:text-5xl font-bold text-kimono-black mb-4">詩吟への想いと活動について</h1>
             </div>
 
             <!-- プロフィール画像と基本情報 -->
             <div class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
                 <div class="flex-shrink-0">
-                    <img src="/assets/images/profile-photo.jpg" alt="heyhey プロフィール写真" class="w-64 h-64 rounded-lg object-cover shadow-lg">
+                    <img src="必要画像/吟ねこ.jpg" alt="heyhey プロフィール写真" class="w-64 h-64 rounded-lg object-cover shadow-lg">
                 </div>
                 <div class="flex-1">
-                    <h2 class="font-zen text-3xl font-bold text-kimono-black mb-4">heyhey</h2>
-                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
-                        デジタル時代のクリエイター・教育者として活動しています。YouTubeチャンネルでは最新の技術情報やライフハックを発信し、多くの方々の学習とスキルアップをサポートしています。
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-brand-green text-kimono-black rounded-full text-sm font-medium">YouTuber</span>
-                        <span class="px-3 py-1 bg-accent-gold text-kimono-black rounded-full text-sm font-medium">作家</span>
-                        <span class="px-3 py-1 bg-accent-pink text-kimono-black rounded-full text-sm font-medium">教育者</span>
-                        <span class="px-3 py-1 bg-gray-200 text-kimono-black rounded-full text-sm font-medium">コンテンツクリエイター</span>
+                    <div class="prose prose-lg max-w-none">
+                        <p class="text-gray-700 text-lg leading-relaxed">
+                            はじめまして。<br>
+                            このページをご覧いただき、ありがとうございます。<br>
+                            詩吟YouTuberとして活動している heyhey です。<br>
+                            私が詩吟と出会ったのは10歳の頃。気づけば25年以上、その奥深い世界に魅了され続けてきました。1988年生まれで、現在はYouTubeチャンネル「詩吟ちゃんねる」を拠点に、詩吟の魅力や楽しさをお伝えしています。
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <!-- 経歴セクション -->
+            <!-- ストーリーセクション -->
             <section class="mb-12">
-                <h2 class="font-zen text-3xl font-bold text-kimono-black mb-6">経歴</h2>
                 <div class="prose prose-lg max-w-none">
+                    <h2 class="font-zen text-3xl font-bold text-kimono-black mb-6">活動のきっかけ</h2>
                     <p class="text-gray-700 leading-relaxed mb-6">
-                        大学でコンピューターサイエンスを専攻し、卒業後はソフトウェアエンジニアとして大手IT企業に勤務。その後、個人の学習スタイルに合わせた効果的な教育方法に興味を持ち、独立してコンテンツクリエイターとしての活動を開始しました。
-                    </p>
-                    <p class="text-gray-700 leading-relaxed mb-6">
-                        2019年にYouTubeチャンネルを開設し、プログラミングや最新技術に関する解説動画を投稿開始。分かりやすい解説と実践的なアプローチが評価され、現在では登録者数10万人を超える人気チャンネルに成長しています。
+                        もともとは趣味の一つとして続けていた詩吟ですが、大きな転機となったのは、2018年に出場した全国コンクールで優勝という貴重な経験をさせていただいたことです。
                     </p>
                     <p class="text-gray-700 leading-relaxed mb-6">
-                        2021年からは執筆活動も本格化し、Kindle書籍を複数出版。実践的な学習法や効率的な働き方をテーマにした書籍は、多くの読者から好評を得ています。
+                        この経験を通して、詩吟の素晴らしさを再確認すると同時に、「もっと多くの方に、この面白さを気軽に知ってもらいたい」という気持ちが強くなりました。特定の流派や難しいイメージにとらわれず、誰もが自由に楽しめるものとして詩吟に触れてほしい。そんな想いから、流派を公表せず、YouTubeでの発信活動を始めました。
                     </p>
-                </div>
-            </section>
-
-            <!-- 活動理念セクション -->
-            <section class="mb-12">
-                <h2 class="font-zen text-3xl font-bold text-kimono-black mb-6">活動理念</h2>
-                <div class="bg-gray-50 p-8 rounded-lg">
-                    <blockquote class="text-xl text-gray-700 italic leading-relaxed mb-6">
-                        「学ぶことの楽しさを伝え、一人ひとりの可能性を最大限に引き出すこと」
-                    </blockquote>
-                    <p class="text-gray-700 leading-relaxed mb-4">
-                        私の活動の根底にあるのは、学習する喜びを多くの人に伝えたいという思いです。技術の進歩が加速する現代において、継続的な学習は必要不可欠ですが、同時に非常に楽しいものでもあります。
+                    
+                    <h2 class="font-zen text-3xl font-bold text-kimono-black mb-6 mt-12">私が大切にしていること</h2>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        動画やレッスンでお伝えする際に心がけているのは、とにかく「分かりやすく」あることです。私自身、趣味でゴスペルを学んできた経験もあり、伝統的な教え方に少しだけ現代的なボイストレーニングの視点を加えて、自分なりに工夫しながら解説しています。
                     </p>
-                    <p class="text-gray-700 leading-relaxed mb-4">
-                        YouTube、書籍、オンライン教室「吟猫道場」を通じて、複雑な概念を分かりやすく解説し、実践的なスキルを身につけられるコンテンツを提供しています。一方的な情報発信ではなく、視聴者・読者の皆さんとの対話を大切にし、個々のニーズに合わせたサポートを心がけています。
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        難しい専門用語ではなく、誰もが実践できる言葉で。感情に頼るだけでなく、基本を大切に。見てくださる方が、一歩でも上達を実感できるような内容をお届けできればと思っています。
                     </p>
-                </div>
-            </section>
-
-            <!-- 専門分野セクション -->
-            <section class="mb-12">
-                <h2 class="font-zen text-3xl font-bold text-kimono-black mb-6">専門分野</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-white border border-gray-200 rounded-lg p-6">
-                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-3">プログラミング教育</h3>
-                        <p class="text-gray-700">
-                            初心者から上級者まで対応できる段階的な学習カリキュラムの設計と、実際に使えるスキルの習得を重視した実践的な指導方法。
-                        </p>
-                    </div>
-                    <div class="bg-white border border-gray-200 rounded-lg p-6">
-                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-3">効率的学習法</h3>
-                        <p class="text-gray-700">
-                            認知科学に基づいた記憶定着テクニックや、短時間で最大の効果を得るための学習戦略の研究・実践。
-                        </p>
-                    </div>
-                    <div class="bg-white border border-gray-200 rounded-lg p-6">
-                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-3">デジタル活用術</h3>
-                        <p class="text-gray-700">
-                            最新のデジタルツールを活用した生産性向上や、リモートワーク環境での効率的な働き方の提案。
-                        </p>
-                    </div>
-                    <div class="bg-white border border-gray-200 rounded-lg p-6">
-                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-3">コンテンツ制作</h3>
-                        <p class="text-gray-700">
-                            動画制作、執筆、オンラインコース開発など、多様なメディアを活用した教育コンテンツの企画・制作。
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 主な実績セクション -->
-            <section class="mb-12">
-                <h2 class="font-zen text-3xl font-bold text-kimono-black mb-6">主な実績</h2>
-                <div class="space-y-4">
-                    <div class="flex items-start gap-4">
-                        <div class="w-2 h-2 bg-brand-green rounded-full mt-2 flex-shrink-0"></div>
-                        <div>
-                            <h3 class="font-medium text-kimono-black">YouTubeチャンネル登録者数10万人突破</h3>
-                            <p class="text-gray-600">2023年8月に達成。プログラミング教育系チャンネルとして高い評価を獲得</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-2 h-2 bg-brand-green rounded-full mt-2 flex-shrink-0"></div>
-                        <div>
-                            <h3 class="font-medium text-kimono-black">Kindle書籍5冊出版</h3>
-                            <p class="text-gray-600">学習法・働き方をテーマにした書籍が累計10万部を突破</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-2 h-2 bg-brand-green rounded-full mt-2 flex-shrink-0"></div>
-                        <div>
-                            <h3 class="font-medium text-kimono-black">オンライン教室「吟猫道場」開設</h3>
-                            <p class="text-gray-600">500名以上の受講生が参加する実践的なスキルアップ講座を運営</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-2 h-2 bg-brand-green rounded-full mt-2 flex-shrink-0"></div>
-                        <div>
-                            <h3 class="font-medium text-kimono-black">企業研修講師として活動</h3>
-                            <p class="text-gray-600">大手IT企業を中心に、デジタルスキル向上研修を多数実施</p>
-                        </div>
-                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        また、私の活動にはもう一つの想いがあります。現在の詩吟の世界に目を向けると、素晴らしい実力をお持ちでも、詩吟だけで活動を続けていくのが難しいという現状があります。もちろん、私よりも優れた吟をされる方は世の中に沢山いらっしゃいます。
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        そうした方々も含め、詩吟を愛する人がもっと自由に活動できるような道を切り拓きたい。そのために、私自身が新しい吟士のあり方を示す一つのモデルになれたらと考えています。最近では、詩吟にAI技術を組み合わせるなど、伝統の世界に新しい可能性を見出すための挑戦も日々続けているところです。
+                    </p>
+                    
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        詩吟は、一見すると少し古風で難しそうに感じるかもしれません。ですが、実はとても自由で、声を出す楽しさを実感できる、生涯の趣味になりうるものです。
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        この活動を通して、皆さんが詩吟に少しでも興味を持つきっかけとなれたら、これほど嬉しいことはありません。よろしければ、温かい目で見守っていただけると幸いです。
+                    </p>
                 </div>
             </section>
 

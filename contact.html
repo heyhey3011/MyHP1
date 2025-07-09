@@ -67,14 +67,14 @@
             <!-- ヘッダー -->
             <div class="text-center mb-12">
                 <h1 class="font-zen text-4xl md:text-5xl font-bold text-kimono-black mb-4">お問い合わせ</h1>
-                <p class="text-gray-600 text-lg">ご質問やご相談がございましたら、お気軽にお問い合わせください</p>
+                <p class="text-gray-600 text-lg">ご質問やご相談がございましたら、お気軽にお問い合わせください<br>（XやDiscordからのDMでも大丈夫です）</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="flex justify-center">
                 <!-- お問い合わせフォーム -->
-                <div class="bg-white rounded-lg shadow-md p-8">
+                <div class="bg-white rounded-lg shadow-md p-8 w-full max-w-2xl">
                     <h2 class="font-zen text-2xl font-bold text-kimono-black mb-6">お問い合わせフォーム</h2>
-                    <form id="contact-form" class="space-y-6">
+                    <form id="contact-form" class="space-y-6" action="mailto:heyhey.shigin@gmail.com" method="post" enctype="text/plain">
                         <!-- お名前 -->
                         <div>
                             <label for="name" class="block text-sm font-medium text-kimono-black mb-2">
@@ -152,91 +152,6 @@
                             </button>
                         </div>
                     </form>
-                </div>
-
-                <!-- 連絡先情報とその他の情報 -->
-                <div class="space-y-8">
-                    <!-- 連絡先情報 -->
-                    <div class="bg-white rounded-lg shadow-md p-8">
-                        <h2 class="font-zen text-2xl font-bold text-kimono-black mb-6">連絡先情報</h2>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-4">
-                                <div class="flex-shrink-0">
-                                    <svg class="w-6 h-6 text-brand-green mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="font-medium text-kimono-black">メールアドレス</h3>
-                                    <p class="text-gray-600">contact@heyhey.com</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div class="flex-shrink-0">
-                                    <svg class="w-6 h-6 text-brand-green mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="font-medium text-kimono-black">対応時間</h3>
-                                    <p class="text-gray-600">平日 9:00 - 18:00</p>
-                                    <p class="text-gray-600 text-sm">（土日祝日は対応しておりません）</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- よくあるお問い合わせ -->
-                    <div class="bg-white rounded-lg shadow-md p-8">
-                        <h2 class="font-zen text-2xl font-bold text-kimono-black mb-6">よくあるお問い合わせ</h2>
-                        <div class="space-y-4">
-                            <div>
-                                <h3 class="font-medium text-kimono-black mb-2">講演依頼について</h3>
-                                <p class="text-gray-600 text-sm">
-                                    講演のご依頼は、開催日の2ヶ月前までにお問い合わせください。料金や詳細については個別にご相談いたします。
-                                </p>
-                            </div>
-                            <div>
-                                <h3 class="font-medium text-kimono-black mb-2">研修について</h3>
-                                <p class="text-gray-600 text-sm">
-                                    企業向けの研修プログラムをご用意しております。オンライン・オフライン両方対応可能です。
-                                </p>
-                            </div>
-                            <div>
-                                <h3 class="font-medium text-kimono-black mb-2">書籍について</h3>
-                                <p class="text-gray-600 text-sm">
-                                    書籍に関するご質問は、出版社を通じてお答えする場合がございます。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SNSリンク -->
-                    <div class="bg-white rounded-lg shadow-md p-8">
-                        <h2 class="font-zen text-2xl font-bold text-kimono-black mb-6">SNSで繋がりましょう</h2>
-                        <div class="flex space-x-4">
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-12 h-12 bg-brand-green rounded-full text-kimono-black hover:bg-opacity-90 transition-colors">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                                </svg>
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-12 h-12 bg-accent-gold rounded-full text-kimono-black hover:bg-opacity-90 transition-colors">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 5.5 4.46 9.96 9.96 9.96 5.5 0 9.96-4.46 9.96-9.96 0-5.5-4.46-9.96-9.96-9.96zm4.43 7.45c.02.2.02.4.02.61 0 6.19-4.71 13.33-13.33 13.33-2.65 0-5.11-.78-7.18-2.11.37.04.74.06 1.12.06 2.18 0 4.18-.74 5.77-1.98-2.04-.04-3.76-1.38-4.35-3.22.29.06.58.09.88.09.42 0 .83-.06 1.22-.16-2.13-.43-3.73-2.31-3.73-4.57v-.06c.63.35 1.35.56 2.11.58-.125-.85-.2-1.73-.2-2.64 0-1.01.27-1.96.74-2.77 2.3 2.82 5.73 4.67 9.61 4.87-.08-.35-.12-.71-.12-1.08 0-2.61 2.11-4.72 4.72-4.72 1.36 0 2.59.57 3.45 1.49 1.08-.21 2.09-.6 3-.114-.35 1.1-1.1 2.02-2.07 2.6.96-.11 1.88-.36 2.73-.73-.64.95-1.45 1.78-2.38 2.45z"/>
-                                </svg>
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-12 h-12 bg-accent-pink rounded-full text-kimono-black hover:bg-opacity-90 transition-colors">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                                </svg>
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-12 h-12 bg-red-500 rounded-full text-white hover:bg-opacity-90 transition-colors">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M23.498 6.186a2.985 2.985 0 00-2.106-2.106C19.504 3.546 12 3.546 12 3.546s-7.504 0-9.392.534A2.985 2.985 0 00.502 6.186C0 8.074 0 12 0 12s0 3.926.502 5.814a2.985 2.985 0 002.106 2.106c1.888.534 9.392.534 9.392.534s7.504 0 9.392-.534a2.985 2.985 0 002.106-2.106C24 15.926 24 12 24 12s0-3.926-.502-5.814zM9.546 15.569V8.431L15.818 12l-6.272 3.569z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
