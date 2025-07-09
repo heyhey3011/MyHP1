@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; upgrade-insecure-requests;">
     <title>吟猫道場 - オンライン詩吟教室詳細・入会方法</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -61,6 +62,7 @@
         </div>
     </header>
 
+    <!-- ファーストビュー・ヒーローセクション -->
     <section class="bg-gray-800 flex items-center justify-center py-20 lg:py-32 mt-16">
         <div class="text-center px-8">
             <h1 class="font-zen text-4xl md:text-6xl font-black text-pure-white mb-6">
@@ -69,12 +71,95 @@
             <p class="text-pure-white/90 text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
                 オンライン詩吟教室「吟猫道場」へようこそ
             </p>
+            <!-- 修正1: CTAボタンテキスト変更 -->
             <a href="https://www.youtube.com/@shigin_channel/join" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent-gold text-kimono-black px-12 py-4 rounded-full hover:bg-opacity-80 transition-all transform hover:scale-105 font-bold text-lg shadow-xl">
-                月々990円で今すぐ入会する
+                今すぐ入会する
             </a>
         </div>
     </section>
 
+    <!-- 修正2: 新セクション「吟猫道場の7つの特長」 -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-zen text-3xl md:text-4xl font-bold text-kimono-black mb-4">吟猫道場の7つの特長</h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
+                <!-- 年齢問わず -->
+                <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-zen text-sm font-bold text-kimono-black">年齢問わず</h3>
+                </div>
+
+                <!-- 吟歴問わず -->
+                <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-zen text-sm font-bold text-kimono-black">吟歴問わず</h3>
+                </div>
+
+                <!-- 流派問わず -->
+                <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-zen text-sm font-bold text-kimono-black">流派問わず</h3>
+                </div>
+
+                <!-- 住む場所問わず -->
+                <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-zen text-sm font-bold text-kimono-black">住む場所問わず</h3>
+                </div>
+
+                <!-- 時間制約なし -->
+                <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-zen text-sm font-bold text-kimono-black">時間制約なし</h3>
+                </div>
+
+                <!-- 学びが蓄積される -->
+                <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-zen text-sm font-bold text-kimono-black">学びが蓄積される</h3>
+                </div>
+
+                <!-- 入会・退会がラク -->
+                <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-zen text-sm font-bold text-kimono-black">入会・退会がラク</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 修正3: 「吟猫道場とは」セクションの文章リライト -->
     <section class="py-16 bg-pure-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -83,18 +168,16 @@
             </div>
             
             <div class="prose prose-lg max-w-none">
-                <p class="text-lg leading-8 mb-6">
-                    <strong>吟猫道場</strong>は、YouTubeの詩吟ちゃんねるで配信しているheyheyが運営する、オンライン詩吟教室です。
-                    流派に所属すると、様々な費用や土日のスケジュールが制約されることがありますが、
-                    ここでは月額990円という手頃な価格で、自分のペースで詩吟を学び続けることができます。
+                <p class="text-lg leading-8 mb-6 animate-on-scroll">
+                    <strong>吟猫道場</strong>は、<strong>吟歴、流派、場所に関係なく、誰でも自由に気軽に参加できる唯一のオンライン詩吟教室です。</strong>
                 </p>
                 
-                <p class="text-lg leading-8 mb-6">
-                    実際に流派に所属するといろんなお金が出ていって、土日のスケジュールがどんどん潰れていって大変になってくるものです。
-                    しかし吟猫道場では、そんな心配をせずに詩吟の世界を楽しめます。
+                <p class="text-lg leading-8 mb-6 animate-on-scroll">
+                    従来の詩吟教室では、人間関係の煩わしさ、土日のスケジュール制約、高額な費用などが負担となりがちでした。
+                    吟猫道場では、そうした悩みから完全に解放され、月額990円という手頃な価格で、あなたのペースで詩吟の世界を楽しめます。
                 </p>
                 
-                <p class="text-lg leading-8">
+                <p class="text-lg leading-8 animate-on-scroll">
                     練習も発表も気軽にできて、詩吟がもっと楽しめるように、もっと広がるように。
                     そんな想いで、温かくて優しいメンバーが集まるコミュニティを目指しています。
                 </p>
@@ -102,14 +185,14 @@
         </div>
     </section>
 
+    <!-- 修正4: 「メンバーになってできること」セクションの修正（3つのサービスのみ） -->
     <section class="py-16 bg-gray-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="font-zen text-3xl md:text-4xl font-bold text-kimono-black mb-4">メンバーになってできること</h2>
-                <p class="text-gray-600 text-lg">月額990円で受けられる6つのサービス</p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
                     <div class="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center mb-4">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,41 +222,57 @@
                     <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">メンバー限定のコミュニティ交流</h3>
                     <p class="text-gray-600">コミュニティ投稿で他のメンバーと交流し、互いの成長を応援し合えます。</p>
                 </div>
-
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <div class="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2M7 4h10M7 4v16M17 4v16M3 8h4m-4 8h4m14-8h-4m4 8h-4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">ここでしか聞けない限定配信</h3>
-                    <p class="text-gray-600">メンバー限定の特別配信で、より深い詩吟の世界を体験できます。</p>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <div class="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">heyheyの新しい挑戦への先行参加</h3>
-                    <p class="text-gray-600">新しいチャレンジや企画に、メンバーとして真っ先に参加できます。</p>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <div class="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                        </svg>
-                    </div>
-                    <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">Kindle書籍の一部を無料で閲覧</h3>
-                    <p class="text-gray-600">heyheyのKindle書籍の一部コンテンツを、メンバー限定で無料で読むことができます。</p>
-                </div>
             </div>
         </div>
     </section>
 
+    <!-- 修正5: 新セクション「詩吟アドバイスの流れ」 -->
     <section class="py-16 bg-pure-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-zen text-3xl md:text-4xl font-bold text-kimono-black mb-4">詩吟アドバイスの流れ</h2>
+                <p class="text-gray-600 text-lg">3つの簡単なステップで個別アドバイスを受けられます</p>
+            </div>
+            
+            <ol class="space-y-8">
+                <li class="flex items-start space-x-6">
+                    <div class="flex-shrink-0 w-12 h-12 bg-accent-gold rounded-full flex items-center justify-center text-kimono-black font-bold text-xl">1</div>
+                    <div>
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">詩吟をスマホで録音する</h3>
+                        <p class="text-gray-600 text-lg">お好きな詩をスマートフォンで録音してください。録音時間や音質は気にせず、気軽に録音していただけます。</p>
+                    </div>
+                </li>
+
+                <li class="flex items-start space-x-6">
+                    <div class="flex-shrink-0 w-12 h-12 bg-accent-gold rounded-full flex items-center justify-center text-kimono-black font-bold text-xl">2</div>
+                    <div>
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">録音データをメールで送信する</h3>
+                        <p class="text-gray-600 text-lg mb-2">録音した音声ファイルを以下のメールアドレスまでお送りください。</p>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <p class="font-mono text-accent-gold font-bold">heyhey.shigin@gmail.com</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="flex items-start space-x-6">
+                    <div class="flex-shrink-0 w-12 h-12 bg-accent-gold rounded-full flex items-center justify-center text-kimono-black font-bold text-xl">3</div>
+                    <div>
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">アドバイス動画が限定公開される</h3>
+                        <p class="text-gray-600 text-lg">数日以内にYouTubeメンバーシップ限定動画として、あなた専用のアドバイス動画が公開されます。</p>
+                    </div>
+                </li>
+            </ol>
+
+            <div class="mt-8 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-lg">
+                <p class="text-sm text-gray-600">
+                    ※応募回数は現在制限しておりません。私の体調やスケジュールに応じて返信が遅くなる場合がございます。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 「大切にしたい3つの心得」セクション -->
+    <section class="py-16 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="font-zen text-3xl md:text-4xl font-bold text-kimono-black mb-4">大切にしたい3つの心得</h2>
@@ -208,7 +307,8 @@
         </div>
     </section>
 
-    <section class="py-16 bg-gray-50">
+    <!-- 料金について -->
+    <section class="py-16 bg-pure-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="font-zen text-3xl md:text-4xl font-bold text-kimono-black mb-4">料金について</h2>
@@ -235,7 +335,8 @@
         </div>
     </section>
 
-    <section class="py-16 bg-pure-white">
+    <!-- 修正6: 入会方法セクション（QRコード削除） -->
+    <section class="py-16 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="font-zen text-3xl md:text-4xl font-bold text-kimono-black mb-4">入会方法</h2>
@@ -246,19 +347,15 @@
                 <div class="flex items-start space-x-6">
                     <div class="flex-shrink-0 w-14 h-14 bg-brand-green rounded-full flex items-center justify-center text-white font-bold text-2xl">1</div>
                     <div class="flex-1">
-                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">下記のリンクまたはQRコードからアクセス</h3>
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">下記のリンクからアクセス</h3>
                         <p class="text-gray-600 mb-4">
                             スマートフォンをご利用の場合は、<strong>YouTubeアプリではなく</strong>、SafariやChromeなどのブラウザでアクセスしてください。
                             アプリ経由だと手数料の関係で料金が高くなる場合があります。
                         </p>
-                        <div class="flex flex-col sm:flex-row items-center gap-6">
+                        <div class="text-center">
                             <a href="https://www.youtube.com/@shigin_channel/join" target="_blank" rel="noopener noreferrer" class="bg-accent-gold text-kimono-black px-8 py-3 rounded-full font-bold hover:bg-opacity-80 transition-all">
                                 入会ページへ
                             </a>
-                            <div class="text-center">
-                                <img src="必要画像/メンバーシップURL.png" alt="吟猫道場メンバーシップ QRコード" class="w-32 h-32 mx-auto mb-2">
-                                <p class="text-sm text-gray-600">QRコードからもアクセス可能</p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -293,11 +390,15 @@
                 </div>
             </div>
 
+            <!-- 修正7: 最終CTAセクションの修正 -->
             <div class="mt-12 text-center">
                 <div class="bg-brand-green/10 rounded-lg p-6 mb-6">
-                    <p class="text-lg text-kimono-black">
-                        <strong>入会後すぐに</strong>メンバー限定コンテンツをお楽しみいただけます！
+                    <p class="text-lg text-kimono-black mb-4">
+                        <strong>入会後、さっそく詩吟を録音して送ってみましょう！</strong>
                     </p>
+                    <a href="how-to-record.html" class="text-accent-gold hover:text-kimono-black transition-colors font-medium underline">
+                        録音データをメールで送付する方法はこちら
+                    </a>
                 </div>
                 <a href="https://www.youtube.com/@shigin_channel/join" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent-gold text-kimono-black px-12 py-4 rounded-full hover:bg-opacity-80 transition-all transform hover:scale-105 font-bold text-lg shadow-xl">
                     今すぐ入会する
@@ -309,23 +410,6 @@
     <footer class="bg-kimono-black text-pure-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col items-center">
-                <div class="flex space-x-6 mb-6">
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="text-pure-white hover:text-brand-green transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
-                    </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="text-pure-white hover:text-brand-green transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M18.13 12.5c0-.74-.34-1.4-.87-1.85l-4.77-4.24c-.9-.8-2.27-.8-3.17 0l-4.77 4.24c-.53.45-.87 1.11-.87 1.85v7.5c0 .83.67 1.5 1.5 1.5h3c.83 0 1.5-.67 1.5-1.5v-3c0-.55.45-1 1-1h2c.55 0 1 .45 1 1v3c0 .83.67 1.5 1.5 1.5h3c.83 0 1.5-.67 1.5-1.5v-7.5z"/>
-                        </svg>
-                    </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="text-pure-white hover:text-brand-green transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                </div>
                 <p class="text-center text-gray-400">© 2025 heyhey. All rights reserved.</p>
             </div>
         </div>
@@ -348,6 +432,20 @@
             } else {
                 header.classList.remove('shadow-lg', 'bg-pure-white/80', 'backdrop-blur-sm');
             }
+        });
+        
+        // スクロールアニメーションの設定
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; upgrade-insecure-requests;">
     <title>詩吟への想いと活動について - heyhey</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -27,10 +28,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700&family=Noto+Sans+JP:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('必要画像/washi-texture.png');
+            background-repeat: repeat;
+            background-color: #F8F5EF; /* 生成りのような色を背景色として指定 */
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body class="font-noto bg-pure-white">
+<body class="font-noto">
     <!-- ヘッダー -->
-    <header class="bg-pure-white shadow-sm">
+    <header class="bg-pure-white fixed top-0 w-full z-50 transition-all duration-300 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
@@ -63,15 +80,15 @@
     </header>
 
     <!-- メインコンテンツ -->
-    <main class="py-16">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <main class="py-16 pt-32">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm shadow-xl rounded-lg p-8 md:p-12">
             <!-- ヘッダー -->
             <div class="text-center mb-12">
-                <h1 class="font-zen text-4xl md:text-5xl font-bold text-kimono-black mb-4">詩吟への想いと活動について</h1>
+                <h1 class="font-zen text-4xl md:text-5xl font-bold text-kimono-black mb-4 animate-on-scroll">詩吟への想いと活動について</h1>
             </div>
 
             <!-- プロフィール画像と基本情報 -->
-            <div class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12 animate-on-scroll">
                 <div class="flex-shrink-0">
                     <img src="必要画像/吟ねこ.jpg" alt="heyhey プロフィール写真" class="w-64 h-64 rounded-lg object-cover shadow-lg">
                 </div>
@@ -90,7 +107,7 @@
             <!-- ストーリーセクション -->
             <section class="mb-12">
                 <div class="prose prose-lg max-w-none">
-                    <h2 class="font-zen text-3xl font-bold text-kimono-black mb-6">活動のきっかけ</h2>
+                    <h2 class="font-zen text-3xl font-bold text-kimono-black mb-6 animate-on-scroll">活動のきっかけ</h2>
                     <p class="text-gray-700 leading-relaxed mb-6">
                         もともとは趣味の一つとして続けていた詩吟ですが、大きな転機となったのは、2018年に出場した全国コンクールで優勝という貴重な経験をさせていただいたことです。
                     </p>
@@ -98,7 +115,7 @@
                         この経験を通して、詩吟の素晴らしさを再確認すると同時に、「もっと多くの方に、この面白さを気軽に知ってもらいたい」という気持ちが強くなりました。特定の流派や難しいイメージにとらわれず、誰もが自由に楽しめるものとして詩吟に触れてほしい。そんな想いから、流派を公表せず、YouTubeでの発信活動を始めました。
                     </p>
                     
-                    <h2 class="font-zen text-3xl font-bold text-kimono-black mb-6 mt-12">私が大切にしていること</h2>
+                    <h2 class="font-zen text-3xl font-bold text-kimono-black mb-6 mt-12 animate-on-scroll">私が大切にしていること</h2>
                     <p class="text-gray-700 leading-relaxed mb-6">
                         動画やレッスンでお伝えする際に心がけているのは、とにかく「分かりやすく」あることです。私自身、趣味でゴスペルを学んできた経験もあり、伝統的な教え方に少しだけ現代的なボイストレーニングの視点を加えて、自分なりに工夫しながら解説しています。
                     </p>
@@ -122,7 +139,7 @@
             </section>
 
             <!-- お問い合わせCTA -->
-            <section class="text-center">
+            <section class="text-center animate-on-scroll">
                 <div class="bg-brand-green p-8 rounded-lg">
                     <h2 class="font-zen text-2xl font-bold text-kimono-black mb-4">お気軽にお問い合わせください</h2>
                     <p class="text-kimono-black mb-6">
@@ -140,18 +157,6 @@
     <footer class="bg-kimono-black text-pure-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col items-center">
-                <div class="flex space-x-6 mb-6">
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="text-pure-white hover:text-brand-green transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                        </svg>
-                    </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="text-pure-white hover:text-brand-green transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 5.5 4.46 9.96 9.96 9.96 5.5 0 9.96-4.46 9.96-9.96 0-5.5-4.46-9.96-9.96-9.96zm4.43 7.45c.02.2.02.4.02.61 0 6.19-4.71 13.33-13.33 13.33-2.65 0-5.11-.78-7.18-2.11.37.04.74.06 1.12.06 2.18 0 4.18-.74 5.77-1.98-2.04-.04-3.76-1.38-4.35-3.22.29.06.58.09.88.09.42 0 .83-.06 1.22-.16-2.13-.43-3.73-2.31-3.73-4.57v-.06c.63.35 1.35.56 2.11.58-.125-.85-.2-1.73-.2-2.64 0-1.01.27-1.96.74-2.77 2.3 2.82 5.73 4.67 9.61 4.87-.08-.35-.12-.71-.12-1.08 0-2.61 2.11-4.72 4.72-4.72 1.36 0 2.59.57 3.45 1.49 1.08-.21 2.09-.6 3-.114-.35 1.1-1.1 2.02-2.07 2.6.96-.11 1.88-.36 2.73-.73-.64.95-1.45 1.78-2.38 2.45z"/>
-                        </svg>
-                    </a>
-                </div>
                 <p class="text-center text-gray-400">© 2025 heyhey. All rights reserved.</p>
             </div>
         </div>
@@ -164,6 +169,30 @@
         
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+        
+        // スクロール時のヘッダー効果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-lg', 'bg-white/90', 'backdrop-blur-md');
+            } else {
+                header.classList.remove('shadow-lg', 'bg-white/90', 'backdrop-blur-md');
+            }
+        });
+        
+        // スクロールアニメーションの設定
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>

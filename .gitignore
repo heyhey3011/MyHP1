@@ -1,5 +1,5 @@
 # API Keys and Configuration
-config.js
+config.local.js
 .env
 .env.local
 .env.production

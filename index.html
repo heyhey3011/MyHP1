@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.googleapis.com; frame-src https://www.youtube.com; upgrade-insecure-requests;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <title>heyhey - 公式ポートフォリオサイト</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -27,8 +32,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700&family=Noto+Sans+JP:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('必要画像/washi-texture.png');
+            background-repeat: repeat;
+            background-color: #F8F5EF; /* 生成りのような色を背景色として指定 */
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body class="font-noto bg-pure-white">
+<body class="font-noto">
     <!-- ヘッダー -->
     <header class="bg-pure-white fixed top-0 w-full z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,19 +83,18 @@
         </div>
     </header>
 
-    <!-- キャッチコピーセクション -->
-    <section class="bg-pure-white pt-24 pb-12 md:pt-32 md:pb-16 text-center">
-        <h1 class="font-zen text-4xl md:text-5xl font-black text-kimono-black leading-tight">
-            詩吟を、もっと気軽に、<br class="sm:hidden">もっと楽しく
-        </h1>
-    </section>
-
     <!-- ヒーローセクション -->
-    <section class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
+    <section class="grid grid-cols-1 lg:grid-cols-2 pt-32 pb-16">
+        <!-- キャッチコピー -->
+        <div class="lg:col-span-2 text-center mb-12">
+            <h1 class="font-zen text-4xl md:text-5xl font-black text-kimono-black leading-tight animate-on-scroll">
+                詩吟を、もっと気軽に、<br class="sm:hidden">もっと楽しく
+            </h1>
+        </div>
         <!-- YouTube側 -->
-        <div class="bg-brand-green flex items-center justify-center py-16 lg:py-0 group">
+        <div class="bg-brand-green flex items-center justify-center py-16 lg:py-0 group shadow-2xl">
             <div class="flex flex-col justify-center items-center w-full max-w-md mx-auto px-8 space-y-6">
-                <h2 class="font-zen text-4xl md:text-5xl font-black text-kimono-black text-center">YouTube発信</h2>
+                <h2 class="font-zen text-3xl md:text-4xl font-black text-kimono-black text-center">YouTube発信</h2>
                 
                 <a href="https://www.youtube.com/channel/UCerBISByAKR3KU9CD9Tz5ZQ" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-lg shadow-xl">
                     <img src="必要画像/詩吟ちゃんねる2.png" alt="詩吟ちゃんねる" class="w-80 h-48 mx-auto object-cover group-hover:scale-105 transition-transform duration-300">
@@ -119,9 +139,9 @@
         </div>
 
         <!-- 吟猫道場側 -->
-        <div class="bg-gray-800 flex items-center justify-center py-16 lg:py-0 group">
+        <div class="bg-gray-800 flex items-center justify-center py-16 lg:py-0 group shadow-2xl">
             <div class="flex flex-col justify-center items-center w-full max-w-md mx-auto px-8 space-y-6">
-                <h2 class="font-zen text-4xl md:text-5xl font-black text-pure-white text-center">オンライン詩吟教室</h2>
+                <h2 class="font-zen text-3xl md:text-4xl font-black text-pure-white text-center">オンライン詩吟教室</h2>
                 
                 <a href="dojo-details.html" class="block overflow-hidden rounded-lg shadow-xl">
                     <img src="必要画像/吟猫道場2.png" alt="吟猫道場" class="w-80 h-48 mx-auto object-cover group-hover:scale-105 transition-transform duration-300">
@@ -139,23 +159,23 @@
     </section>
 
     <!-- Kindle書籍セクション -->
-    <section class="py-16 bg-pure-white">
+    <section class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="font-zen text-4xl font-bold text-kimono-black">Kindle書籍</h2>
+                <h2 class="font-zen text-4xl font-bold text-kimono-black animate-on-scroll">Kindle書籍</h2>
             </div>
             
             <div class="flex space-x-6 md:space-x-0 md:grid md:grid-cols-3 md:gap-8 overflow-x-auto snap-x snap-mandatory pb-4">
                 <!-- 書籍カード1 -->
-                <div class="relative flex-none w-10/12 md:w-auto snap-center bg-white border rounded-lg shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300" style="min-height: 500px">
+                <div class="relative flex flex-col flex-none w-10/12 md:w-auto snap-center bg-white border rounded-lg shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-on-scroll">
                     <div class="absolute top-2 left-2 transform -rotate-12 bg-accent-pink/90 text-white font-bold text-xs px-3 py-1 rounded-md shadow-lg">腹式呼吸の話</div>
                     <a href="https://amzn.to/3uMn6QC" target="_blank" rel="noopener noreferrer">
                         <img src="必要画像/kindle表紙「本当の腹式呼吸」.jpg" alt="書籍1" class="w-full h-64 object-contain bg-gray-50">
                     </a>
-                    <div class="p-6">
+                    <div class="p-6 flex-grow">
                         <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">自分の声に自信が持てる!!本当の腹式呼吸</h3>
                         <p class="text-gray-600 mb-4">声に自信が持てないあなたへ。腹式呼吸をマスターして、美しい声を手に入れよう。</p>
-                        <div class="space-y-2">
+                        <div class="space-y-2 mt-auto">
                             <a href="https://amzn.to/3uMn6QC" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent-gold text-kimono-black text-center py-2 rounded-md hover:bg-opacity-90 transition-colors font-medium">
                                 読んでみる（Amazon）
                             </a>
@@ -167,15 +187,15 @@
                 </div>
 
                 <!-- 書籍カード2 -->
-                <div class="relative flex-none w-10/12 md:w-auto snap-center bg-white border rounded-lg shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300" style="min-height: 500px">
+                <div class="relative flex flex-col flex-none w-10/12 md:w-auto snap-center bg-white border rounded-lg shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-on-scroll">
                     <div class="absolute top-2 left-2 transform -rotate-12 bg-accent-pink/90 text-white font-bold text-xs px-3 py-1 rounded-md shadow-lg">詩吟歴1～10年目向け</div>
                     <a href="https://amzn.to/3Mkz5Oe" target="_blank" rel="noopener noreferrer">
                         <img src="必要画像/kindle表紙「初心者編」.jpg" alt="書籍2" class="w-full h-64 object-contain bg-gray-50">
                     </a>
-                    <div class="p-6">
+                    <div class="p-6 flex-grow">
                         <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">詩吟の教科書－初心者編－</h3>
                         <p class="text-gray-600 mb-4 h-16">詩吟を始めたい人のための完全ガイド。基本から丁寧に解説しています。</p>
-                        <div class="space-y-2">
+                        <div class="space-y-2 mt-auto">
                             <a href="https://amzn.to/3Mkz5Oe" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent-gold text-kimono-black text-center py-2 rounded-md hover:bg-opacity-90 transition-colors font-medium">
                                 読んでみる（Amazon）
                             </a>
@@ -187,15 +207,15 @@
                 </div>
 
                 <!-- 書籍カード3 -->
-                <div class="relative flex-none w-10/12 md:w-auto snap-center bg-white border rounded-lg shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300" style="min-height: 500px">
+                <div class="relative flex flex-col flex-none w-10/12 md:w-auto snap-center bg-white border rounded-lg shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-on-scroll">
                     <div class="absolute top-2 left-2 transform -rotate-12 bg-accent-pink/90 text-white font-bold text-xs px-3 py-1 rounded-md shadow-lg">詩吟に興味ある人向け</div>
                     <a href="https://amzn.to/43hkDP6" target="_blank" rel="noopener noreferrer">
                         <img src="必要画像/kindle表紙「入門編」.jpg" alt="書籍3" class="w-full h-64 object-contain bg-gray-50">
                     </a>
-                    <div class="p-6">
+                    <div class="p-6 flex-grow">
                         <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">詩吟の教科書－入門編－</h3>
                         <p class="text-gray-600 mb-4 h-16">詩吟の世界をもっと深く知りたい方へ。実践的な内容で上達を目指しましょう。</p>
-                        <a href="https://amzn.to/43hkDP6" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent-gold text-kimono-black text-center py-2 rounded-md hover:bg-opacity-90 transition-colors font-medium">
+                        <a href="https://amzn.to/43hkDP6" target="_blank" rel="noopener noreferrer" class="block w-full bg-accent-gold text-kimono-black text-center py-2 rounded-md hover:bg-opacity-90 transition-colors font-medium mt-auto">
                             読んでみる（Amazon）
                         </a>
                     </div>
@@ -205,19 +225,19 @@
     </section>
 
     <!-- その他の活動セクション -->
-    <section class="py-24 bg-pure-white border-t">
+    <section class="py-24 border-t">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="font-zen text-4xl font-bold text-kimono-black">その他の活動</h2>
+                <h2 class="font-zen text-4xl font-bold text-kimono-black animate-on-scroll">その他の活動</h2>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-                <a href="https://x.com/heyhey3011" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 block">
+                <a href="https://x.com/heyhey3011" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 block group animate-on-scroll">
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-kimono-black rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div class="w-16 h-16 bg-kimono-black rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent-gold transition-colors">
                             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                         </div>
-                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">X (旧Twitter)</h3>
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2 group-hover:text-accent-gold transition-colors">X (旧Twitter)</h3>
                         <p class="text-gray-600 mb-4 h-24">詩吟に関する情報や日々の活動をリアルタイムで発信中。</p>
                         <span class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
                             詳細を見る →
@@ -225,12 +245,12 @@
                     </div>
                 </a>
 
-                <a href="https://stand.fm/channels/5f18a737907968e29d7a6b68" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 block">
+                <a href="https://stand.fm/channels/5f18a737907968e29d7a6b68" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 block group animate-on-scroll">
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-accent-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div class="w-16 h-16 bg-accent-gold rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-kimono-black transition-colors">
                             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9v7c0 1.1.9 2 2 2h4v-8H5v-1c0-3.87 3.13-7 7-7s7 3.13 7 7v1h-4v8h4c1.1 0 2-.9 2-2v-7c0-4.97-4.03-9-9-9z"/></svg>
                         </div>
-                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">音声配信</h3>
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2 group-hover:text-accent-gold transition-colors">音声配信</h3>
                         <p class="text-gray-600 mb-4 h-24">詩吟や日常の話題をstand.fmで音声配信しています。</p>
                         <span class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
                             詳細を見る →
@@ -238,12 +258,12 @@
                     </div>
                 </a>
 
-                <a href="https://open.spotify.com/show/6GtLnXezwhCTmwDuKNBraE?si=jAoPXuPaSVeaXnkvivDxlQ" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 block">
+                <a href="https://open.spotify.com/show/6GtLnXezwhCTmwDuKNBraE?si=jAoPXuPaSVeaXnkvivDxlQ" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 block group animate-on-scroll">
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div class="w-16 h-16 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-kimono-black transition-colors">
                             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
                         </div>
-                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">ビデオPodcast</h3>
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2 group-hover:text-accent-gold transition-colors">ビデオPodcast</h3>
                         <p class="text-gray-600 mb-4 h-24">詩吟を知らない人に映像付きで分かりやすく解説してます（全9本）</p>
                         <span class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
                             詳細を見る →
@@ -251,12 +271,12 @@
                     </div>
                 </a>
 
-                <a href="https://suno.com/me" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 block">
+                <a href="https://suno.com/me" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 block group animate-on-scroll">
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-accent-pink rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div class="w-16 h-16 bg-accent-pink rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-kimono-black transition-colors">
                             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
                         </div>
-                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">Suno</h3>
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2 group-hover:text-accent-gold transition-colors">Suno</h3>
                         <p class="text-gray-600 mb-4 h-24">AIを使った詩吟楽曲を制作。代表作「富士山」などを発信しています。</p>
                         <span class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
                             詳細を見る →
@@ -264,12 +284,12 @@
                     </div>
                 </a>
                 
-                <a href="https://shigin.net/p/r/cbWMf1ve" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 block">
+                <a href="https://shigin.net/p/r/cbWMf1ve" target="_blank" rel="noopener noreferrer" class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 block group animate-on-scroll">
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-kimono-black rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div class="w-16 h-16 bg-kimono-black rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent-gold transition-colors">
                             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                         </div>
-                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2">詩吟メルマガ</h3>
+                        <h3 class="font-zen text-xl font-bold text-kimono-black mb-2 group-hover:text-accent-gold transition-colors">詩吟メルマガ</h3>
                         <p class="text-gray-600 mb-4 h-24">詩吟の学習に役立つ情報やコツを定期的にお届けしています。</p>
                         <span class="text-accent-gold hover:text-kimono-black transition-colors font-medium">
                             詳細を見る →
@@ -281,15 +301,15 @@
     </section>
 
     <!-- 最新情報セクション -->
-    <section class="py-16 bg-pure-white">
+    <section class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="font-zen text-3xl md:text-4xl font-bold text-kimono-black mb-4">最新情報</h2>
+                <h2 class="font-zen text-3xl md:text-4xl font-bold text-kimono-black mb-4 animate-on-scroll">最新情報</h2>
                 <p class="text-gray-600 text-lg">最新の動画をチェックしてください</p>
             </div>
             
             <div class="max-w-xl mx-auto">
-                <div class="relative w-full bg-gray-200 rounded-lg overflow-hidden shadow-xl" style="aspect-ratio: 16/9;">
+                <div class="relative w-full bg-gray-200 rounded-lg overflow-hidden shadow-xl animate-on-scroll" style="aspect-ratio: 16/9;">
                     <iframe 
                         id="latest-video-iframe"
                         src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
@@ -309,24 +329,13 @@
     <footer class="bg-kimono-black text-pure-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col items-center">
-                <div class="flex space-x-6 mb-6">
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="text-pure-white hover:text-brand-green transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
-                    </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="text-pure-white hover:text-brand-green transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M18.13 12.5c0-.74-.34-1.4-.87-1.85l-4.77-4.24c-.9-.8-2.27-.8-3.17 0l-4.77 4.24c-.53.45-.87 1.11-.87 1.85v7.5c0 .83.67 1.5 1.5 1.5h3c.83 0 1.5-.67 1.5-1.5v-3c0-.55.45-1 1-1h2c.55 0 1 .45 1 1v3c0 .83.67 1.5 1.5 1.5h3c.83 0 1.5-.67 1.5-1.5v-7.5z"/>
-                        </svg>
-                    </a>
-                </div>
                 <p class="text-center text-gray-400">© 2025 heyhey. All rights reserved.</p>
             </div>
         </div>
     </footer>
     
     <!-- 設定ファイルを読み込み -->
+    <script src="config.local.js"></script>
     <script src="config.js"></script>
     
     <script>
@@ -342,15 +351,22 @@
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 10) {
-                header.classList.add('shadow-lg', 'bg-pure-white/80', 'backdrop-blur-sm');
+                header.classList.add('shadow-lg', 'bg-white/90', 'backdrop-blur-md');
             } else {
-                header.classList.remove('shadow-lg', 'bg-pure-white/80', 'backdrop-blur-sm');
+                header.classList.remove('shadow-lg', 'bg-white/90', 'backdrop-blur-md');
             }
         });
 
         // YouTube Data API設定（config.jsから読み込み）
         const YOUTUBE_API_KEY = CONFIG.YOUTUBE.API_KEY;
         const CHANNEL_ID = CONFIG.YOUTUBE.CHANNEL_ID;
+        
+        // デバッグ情報
+        console.log('API Key Status:', YOUTUBE_API_KEY === 'DEMO_MODE' ? 'DEMO MODE' : 'CONFIGURED');
+        console.log('Channel ID:', CHANNEL_ID);
+        if (YOUTUBE_API_KEY === 'DEMO_MODE') {
+            console.warn('⚠️ APIキーが設定されていません。config.local.js で設定してください。');
+        }
 
         // カウントアップアニメーション関数
         function animateCounter(element, targetValue, duration = 2000) {
@@ -491,6 +507,20 @@
             
             // 最新動画を取得して表示
             fetchAndDisplayLatestVideo();
+            
+            // スクロールアニメーションの設定
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        animationObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                animationObserver.observe(el);
+            });
         });
     </script>
 </body>
