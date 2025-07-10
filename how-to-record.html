@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; upgrade-insecure-requests;">
+    <title>録音データの送り方 - 吟猫道場</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#B4D455',
+                        'kimono-black': '#1A1A1A',
+                        'pure-white': '#FFFFFF',
+                        'accent-gold': '#D8B25F',
+                        'accent-pink': '#F4A7B9'
+                    },
+                    fontFamily: {
+                        'zen': ['Zen Kaku Gothic Antique', 'sans-serif'],
+                        'noto': ['Noto Sans JP', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700&family=Noto+Sans+JP:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('必要画像/washi-texture.png');
+            background-repeat: repeat;
+            background-color: #F8F5EF;
+            line-height: 1.8;
+        }
+        
+        .step-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+        
+        .big-button {
+            font-size: 1.25rem;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .big-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .screenshot-placeholder {
+            min-height: 200px;
+            background-color: #f3f4f6;
+            border: 2px dashed #9ca3af;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-size: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .step-number {
+            width: 3rem;
+            height: 3rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .section-spacing {
+            margin-bottom: 3rem;
+        }
+    </style>
+</head>
+<body class="font-noto bg-pure-white">
+    <header class="bg-pure-white fixed top-0 w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="必要画像/吟ねこ.jpg" alt="heyhey Logo" class="h-8 w-8 rounded-full object-cover">
+                        <span class="font-zen font-bold text-kimono-black ml-3">heyheyのホームページ</span>
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="about.html" class="text-kimono-black hover:text-brand-green transition-colors">詳細プロフィール</a>
+                    <a href="blog.html" class="text-kimono-black hover:text-brand-green transition-colors">ブログ</a>
+                    <a href="contact.html" class="text-kimono-black hover:text-brand-green transition-colors">お問い合わせ</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-kimono-black focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-pure-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="about.html" class="block px-3 py-2 text-kimono-black hover:text-brand-green transition-colors">詳細プロフィール</a>
+                <a href="blog.html" class="block px-3 py-2 text-kimono-black hover:text-brand-green transition-colors">ブログ</a>
+                <a href="contact.html" class="block px-3 py-2 text-kimono-black hover:text-brand-green transition-colors">お問い合わせ</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24 pb-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- 導入セクション -->
+            <div class="text-center mb-12">
+                <h1 class="font-zen text-4xl md:text-5xl font-bold text-kimono-black mb-6">録音データの送り方</h1>
+                <p class="text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto">
+                    ご自身のスマートフォンに合わせた手順をご覧ください。<br>
+                    ひとつずつ、ゆっくり進めていきましょう。
+                </p>
+            </div>
+
+            <!-- デバイス選択セクション -->
+            <div class="text-center mb-16 section-spacing">
+                <h2 class="font-zen text-2xl font-bold text-kimono-black mb-8">お使いのスマートフォンはどちらですか？</h2>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="#iphone-guide" class="big-button bg-accent-gold text-kimono-black hover:bg-opacity-80 transition-all">
+                        iPhone（アイフォーン）の方はこちら
+                    </a>
+                    <a href="#android-guide" class="big-button bg-brand-green text-kimono-black hover:bg-opacity-80 transition-all">
+                        Android（アンドロイド）の方はこちら
+                    </a>
+                </div>
+            </div>
+
+            <!-- iPhoneセクション -->
+            <section id="iphone-guide" class="mb-20 section-spacing">
+                <h2 class="font-zen text-3xl font-bold text-kimono-black mb-8 text-center">iPhoneでの手順</h2>
+                
+                <!-- ステップ1: 録音 -->
+                <div class="mb-12">
+                    <h3 class="font-zen text-2xl font-bold text-kimono-black mb-6 border-b-2 border-accent-gold pb-2">ステップ1：詩吟を録音する</h3>
+                    
+                    <ol class="space-y-8">
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-brand-green rounded-full flex items-center justify-center text-white">1</span>
+                            <div class="flex-1">
+                                <p class="step-text">ホーム画面にある**「ボイスメモ」**という名前のアプリを探してください。<strong>グラフのような絵が描かれた赤いアイコン</strong>になっています。見つけたら、指でポンと触れて開きます。焦らずに、ゆっくり探してみてくださいね。</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-brand-green rounded-full flex items-center justify-center text-white">2</span>
+                            <div class="flex-1">
+                                <p class="step-text">画面の真ん中あたりにある<strong>大きな赤い丸のボタン</strong>を押すと、録音が始まります。ポンと一回押すだけで大丈夫です。録音が始まると、ボタンの色が変わったり、画面に波のような動きが表示されたりします。</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-brand-green rounded-full flex items-center justify-center text-white">3</span>
+                            <div class="flex-1">
+                                <p class="step-text">録音が始まったら、お好きな詩を詩吟で吟じてください。<strong>時間制限はありません</strong>ので、お気軽にどうぞ。録音中は画面に時間が表示されたり、音の波が動いたりしているのが見えます。リラックスして、いつものように吟じてくださいね。</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-brand-green rounded-full flex items-center justify-center text-white">4</span>
+                            <div class="flex-1">
+                                <p class="step-text">詩吟が終わったら、<strong>赤い四角のボタン</strong>を押して録音を止めます。このボタンは画面の真ん中あたりにあります。ポンと一回押すと、録音が終了し、先ほどの丸いボタンに戻ります。</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- ステップ2: 送信 -->
+                <div class="mb-12">
+                    <h3 class="font-zen text-2xl font-bold text-kimono-black mb-6 border-b-2 border-accent-gold pb-2">ステップ2：録音したデータをメールで送る</h3>
+                    
+                    <ol class="space-y-8">
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-accent-gold rounded-full flex items-center justify-center text-kimono-black">1</span>
+                            <div class="flex-1">
+                                <p class="step-text">録音した音声の一覧から、今録ったものを選んで押します。</p>
+                                <div class="screenshot-placeholder">
+                                    （ここに録音リストのスクリーンショット）
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-accent-gold rounded-full flex items-center justify-center text-kimono-black">2</span>
+                            <div class="flex-1">
+                                <p class="step-text">画面の左下にある「・・・」と書かれたボタンを押します。</p>
+                                <div class="screenshot-placeholder">
+                                    （ここに「・・・」ボタンのスクリーンショット）
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-accent-gold rounded-full flex items-center justify-center text-kimono-black">3</span>
+                            <div class="flex-1">
+                                <p class="step-text">「共有」と書かれたボタンを押します。</p>
+                                <div class="screenshot-placeholder">
+                                    （ここに共有ボタンのスクリーンショット）
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-accent-gold rounded-full flex items-center justify-center text-kimono-black">4</span>
+                            <div class="flex-1">
+                                <p class="step-text">「メール」と書かれたアイコンを押します。</p>
+                                <div class="screenshot-placeholder">
+                                    （ここにメールアイコンのスクリーンショット）
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-accent-gold rounded-full flex items-center justify-center text-kimono-black">5</span>
+                            <div class="flex-1">
+                                <p class="step-text">「宛先」の欄に、以下のメールアドレスを入力します。</p>
+                                <div class="bg-gray-50 p-4 rounded-lg my-4">
+                                    <p class="font-mono text-xl font-bold text-accent-gold text-center">heyhey.shigin@gmail.com</p>
+                                </div>
+                                <div class="screenshot-placeholder">
+                                    （ここにメール作成画面のスクリーンショット）
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-accent-gold rounded-full flex items-center justify-center text-kimono-black">6</span>
+                            <div class="flex-1">
+                                <p class="step-text">「件名」の欄に、ご自身のお名前を入力します。</p>
+                                <div class="screenshot-placeholder">
+                                    （ここに件名入力のスクリーンショット）
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-accent-gold rounded-full flex items-center justify-center text-kimono-black">7</span>
+                            <div class="flex-1">
+                                <p class="step-text">右上の「送信」ボタンを押して、メールを送信します。</p>
+                                <div class="screenshot-placeholder">
+                                    （ここに送信ボタンのスクリーンショット）
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Androidセクション -->
+            <section id="android-guide" class="mb-20 section-spacing">
+                <h2 class="font-zen text-3xl font-bold text-kimono-black mb-4 text-center">Androidでの手順</h2>
+                <p class="text-center text-gray-600 mb-8">※お使いの機種によって、アプリの名前や画面が少し違う場合があります</p>
+                
+                <!-- ステップ1: 録音 -->
+                <div class="mb-12">
+                    <h3 class="font-zen text-2xl font-bold text-kimono-black mb-6 border-b-2 border-accent-gold pb-2">ステップ1：詩吟を録音する</h3>
+                    
+                    <ol class="space-y-8">
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-brand-green rounded-full flex items-center justify-center text-white">1</span>
+                            <div class="flex-1">
+                                <p class="step-text">ホーム画面で「レコーダー」や「音声レコーダー」という名前のアプリを探します。<strong>マイクの絵や、波のような絵が描かれていることが多い</strong>です。見つけたら、指でポンと触れて開きます。焦らずに、ゆっくり探してみてくださいね。</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-brand-green rounded-full flex items-center justify-center text-white">2</span>
+                            <div class="flex-1">
+                                <p class="step-text">画面にある<strong>録音ボタン（赤い丸のマークなど）</strong>を押すと、録音が始まります。ポンと一回押すだけで大丈夫です。録音が始まると、ボタンの色が変わったり、画面に音の波が表示されたりします。</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-brand-green rounded-full flex items-center justify-center text-white">3</span>
+                            <div class="flex-1">
+                                <p class="step-text">録音が始まったら、お好きな詩を詩吟で吟じてください。<strong>時間制限はありません</strong>ので、お気軽にどうぞ。録音中は画面に時間が表示されたり、音の波が動いたりしているのが見えます。リラックスして、いつものように吟じてくださいね。</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-brand-green rounded-full flex items-center justify-center text-white">4</span>
+                            <div class="flex-1">
+                                <p class="step-text">詩吟が終わったら、<strong>停止ボタン（四角いマークなど）</strong>を押して録音を止めます。このボタンは録音ボタンの近くにあることが多いです。ポンと一回押すと、録音が終了します。</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- ステップ2: 送信 -->
+                <div class="mb-12">
+                    <h3 class="font-zen text-2xl font-bold text-kimono-black mb-6 border-b-2 border-accent-gold pb-2">ステップ2：録音したデータをメールで送る</h3>
+                    
+                    <ol class="space-y-8">
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-accent-gold rounded-full flex items-center justify-center text-kimono-black">1</span>
+                            <div class="flex-1">
+                                <p class="step-text">録音した音声の一覧から、今録ったファイルを選んで押します。先ほど録音したファイルが、<strong>太い文字で「新規録音」</strong>などと表示されているので、そこを指で押します。一番上に表示されることが多いです。</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-accent-gold rounded-full flex items-center justify-center text-kimono-black">2</span>
+                            <div class="flex-1">
+                                <p class="step-text">「共有」という文字か、<strong>点が三つ繋がったような形のマーク</strong>を探して押します。機種によっては「送信」と書かれている場合もあります。ゆっくり探してみてくださいね。</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-accent-gold rounded-full flex items-center justify-center text-kimono-black">3</span>
+                            <div class="flex-1">
+                                <p class="step-text">たくさんのアプリの絵が出てきますので、その中から<strong>「Gmail」または「メール」</strong>という名前のものを探して押します。メールの封筒のような絵が描かれていることが多いです。</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-accent-gold rounded-full flex items-center justify-center text-kimono-black">4</span>
+                            <div class="flex-1">
+                                <p class="step-text">「宛先」という欄に、キーボードを使って以下のメールアドレスを<strong>一文字ずつ間違えないように</strong>入力します。ゆっくりで大丈夫です。</p>
+                                <div class="bg-gray-50 p-4 rounded-lg my-4">
+                                    <p class="font-mono text-xl font-bold text-accent-gold text-center">heyhey.shigin@gmail.com</p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-accent-gold rounded-full flex items-center justify-center text-kimono-black">5</span>
+                            <div class="flex-1">
+                                <p class="step-text">「件名」の欄に、<strong>ご自身のお名前</strong>を入力します。「田中太郎」のように、普段お使いになっているお名前で大丈夫です。これで、誰から送られてきたメールかが分かります。</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 step-number bg-accent-gold rounded-full flex items-center justify-center text-kimono-black">6</span>
+                            <div class="flex-1">
+                                <p class="step-text">画面の上の方や下の方にある、<strong>三角形の、紙飛行機のような形の送信ボタン</strong>を押します。これで送信完了です。「送信」という文字も一緒に書かれていることが多いです。</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- まとめセクション -->
+            <section class="text-center mb-12">
+                <div class="bg-brand-green/10 rounded-lg p-8 mb-8">
+                    <h3 class="font-zen text-2xl font-bold text-kimono-black mb-4">おつかれさまでした！</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        これで送信は完了です。<br>
+                        heyheyからの返信をどうぞ楽しみにお待ちください。
+                    </p>
+                </div>
+                
+                <a href="dojo-details.html" class="big-button bg-accent-gold text-kimono-black hover:bg-opacity-80 transition-all inline-block">
+                    吟猫道場のページに戻る
+                </a>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-kimono-black text-pure-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center">
+                <p class="text-center text-gray-400">© 2025 heyhey. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // モバイルメニューの切り替え
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // スクロール時のヘッダー効果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-lg', 'bg-pure-white/80', 'backdrop-blur-sm');
+            } else {
+                header.classList.remove('shadow-lg', 'bg-pure-white/80', 'backdrop-blur-sm');
+            }
+        });
+        
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
