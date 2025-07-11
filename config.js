@@ -5,7 +5,8 @@
 const CONFIG = {
     // YouTube Data API v3 設定
     YOUTUBE: {
-        API_KEY: window.YOUTUBE_API_KEY || 'DEMO_MODE', // 環境変数から設定される
+        // この行を変更します
+        API_KEY: '__YOUTUBE_API_KEY__', // 合言葉に置き換える
         CHANNEL_ID: 'UCerBISByAKR3KU9CD9Tz5ZQ',
         
         // ピックアップ動画リスト（recommended-videos.html用）

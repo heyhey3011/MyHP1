@@ -1,0 +1,28 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # mainブランチにプッシュされたら自動で実行
+
+permissions:
+  contents: write # gh-pagesブランチに書き込むために必要
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Replace API Key 🔑
+        run: |
+          # config.js ファイル内の合言葉を、GitHubの金庫にある本物の鍵に置き換える
+          sed -i "s|__YOUTUBE_API_KEY__|${{ secrets.YOUTUBE_API_KEY }}|g" config.js
+          echo "API Key has been replaced."
+
+      - name: Deploy 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./ # プロジェクトのルートディレクトリを公開
