@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; upgrade-insecure-requests;">
+    <title>お問い合わせ - heyhey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#B4D455',
+                        'kimono-black': '#1A1A1A',
+                        'pure-white': '#FFFFFF',
+                        'accent-gold': '#D8B25F',
+                        'accent-pink': '#F4A7B9'
+                    },
+                    fontFamily: {
+                        'zen': ['Zen Kaku Gothic Antique', 'sans-serif'],
+                        'noto': ['Noto Sans JP', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700&family=Noto+Sans+JP:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('必要画像/washi-texture.png');
+            background-repeat: repeat;
+            background-color: #F8F5EF; /* 生成りのような色を背景色として指定 */
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-noto">
+    <!-- ヘッダー -->
+    <header class="bg-pure-white fixed top-0 w-full z-50 transition-all duration-300 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="必要画像/吟ねこ.jpg" alt="heyhey Logo" class="h-8 w-8 rounded-full object-cover">
+                        <span class="font-zen font-bold text-kimono-black ml-3">heyheyのホームページ</span>
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="about.html" class="text-kimono-black hover:text-brand-green transition-colors">詳細プロフィール</a>
+                    <a href="blog.html" class="text-kimono-black hover:text-brand-green transition-colors">個人ブログ</a>
+                    <a href="contact.html" class="text-brand-green font-medium">お問い合わせ</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-kimono-black focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-pure-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="about.html" class="block px-3 py-2 text-kimono-black hover:text-brand-green transition-colors">詳細プロフィール</a>
+                <a href="blog.html" class="block px-3 py-2 text-kimono-black hover:text-brand-green transition-colors">個人ブログ</a>
+                <a href="contact.html" class="block px-3 py-2 text-brand-green font-medium">お問い合わせ</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="py-16 pt-32">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm shadow-xl rounded-lg p-8 md:p-12">
+            <!-- ヘッダー -->
+            <div class="text-center mb-12">
+                <h1 class="font-zen text-4xl md:text-5xl font-bold text-kimono-black mb-4 animate-on-scroll">お問い合わせ</h1>
+                <p class="text-gray-600 text-lg animate-on-scroll">ご質問やご相談がございましたら、お気軽にお問い合わせください<br>（XやDiscordからのDMでも大丈夫です）</p>
+            </div>
+
+            <div class="flex justify-center">
+                <!-- お問い合わせフォーム -->
+                <div class="bg-white/90 backdrop-blur-sm rounded-lg shadow-md p-8 w-full max-w-2xl animate-on-scroll">
+                    <h2 class="font-zen text-2xl font-bold text-kimono-black mb-6 animate-on-scroll">お問い合わせフォーム</h2>
+                    <form id="contact-form" class="space-y-6" novalidate>
+                        <!-- お名前 -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-kimono-black mb-2">
+                                お名前 <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                required 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors"
+                                placeholder="山田 太郎"
+                            >
+                        </div>
+
+                        <!-- メールアドレス -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-kimono-black mb-2">
+                                メールアドレス <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors"
+                                placeholder="example@email.com"
+                            >
+                        </div>
+
+                        <!-- 件名 -->
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-kimono-black mb-2">
+                                件名 <span class="text-red-500">*</span>
+                            </label>
+                            <select 
+                                id="subject" 
+                                name="subject" 
+                                required 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors"
+                            >
+                                <option value="">選択してください</option>
+                                <option value="講演依頼">講演依頼</option>
+                                <option value="研修相談">研修相談</option>
+                                <option value="コラボレーション">コラボレーション</option>
+                                <option value="メディア取材">メディア取材</option>
+                                <option value="書籍について">書籍について</option>
+                                <option value="YouTubeについて">YouTubeについて</option>
+                                <option value="その他">その他</option>
+                            </select>
+                        </div>
+
+                        <!-- お問い合わせ内容 -->
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-kimono-black mb-2">
+                                お問い合わせ内容 <span class="text-red-500">*</span>
+                            </label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                required 
+                                rows="6" 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-green focus:border-transparent transition-colors resize-vertical"
+                                placeholder="お問い合わせ内容を詳しくお聞かせください"
+                            ></textarea>
+                        </div>
+
+                        <!-- 送信ボタン -->
+                        <div>
+                            <button 
+                                type="submit" 
+                                class="w-full bg-brand-green text-kimono-black py-4 px-6 rounded-lg hover:bg-opacity-90 transition-colors font-medium text-lg"
+                            >
+                                送信する
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-kimono-black text-pure-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center">
+                <p class="text-center text-gray-400">© 2025 heyhey. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // モバイルメニューの切り替え
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // スクロール時のヘッダー効果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-lg', 'bg-white/90', 'backdrop-blur-md');
+            } else {
+                header.classList.remove('shadow-lg', 'bg-white/90', 'backdrop-blur-md');
+            }
+        });
+        
+        // スクロールアニメーションの設定
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // フォーム送信処理
+        const contactForm = document.getElementById('contact-form');
+        
+        // 入力値をサニタイズする関数
+        function sanitizeInput(input) {
+            const div = document.createElement('div');
+            div.textContent = input;
+            return div.innerHTML;
+        }
+        
+        // バリデーション関数
+        function validateForm(name, email, subject, message) {
+            const errors = [];
+            
+            if (!name || name.trim().length < 2) {
+                errors.push('お名前は2文字以上で入力してください。');
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+                errors.push('有効なメールアドレスを入力してください。');
+            }
+            
+            if (!subject) {
+                errors.push('件名を選択してください。');
+            }
+            
+            if (!message || message.trim().length < 10) {
+                errors.push('お問い合わせ内容は10文字以上で入力してください。');
+            }
+            
+            return errors;
+        }
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // 入力値を取得してサニタイズ
+            const name = sanitizeInput(document.getElementById('name').value.trim());
+            const email = sanitizeInput(document.getElementById('email').value.trim());
+            const subject = sanitizeInput(document.getElementById('subject').value);
+            const message = sanitizeInput(document.getElementById('message').value.trim());
+            
+            // バリデーション
+            const errors = validateForm(name, email, subject, message);
+            
+            if (errors.length > 0) {
+                alert('入力エラー:\n' + errors.join('\n'));
+                return;
+            }
+            
+            // 実際のフォーム送信処理はここに実装
+            alert('お問い合わせありがとうございます。2営業日以内にご返信いたします。');
+            
+            // フォームリセット
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>

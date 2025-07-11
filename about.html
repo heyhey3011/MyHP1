@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; upgrade-insecure-requests;">
+    <title>詩吟への想いと活動について - heyhey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#B4D455',
+                        'kimono-black': '#1A1A1A',
+                        'pure-white': '#FFFFFF',
+                        'accent-gold': '#D8B25F',
+                        'accent-pink': '#F4A7B9'
+                    },
+                    fontFamily: {
+                        'zen': ['Zen Kaku Gothic Antique', 'sans-serif'],
+                        'noto': ['Noto Sans JP', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700&family=Noto+Sans+JP:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('必要画像/washi-texture.png');
+            background-repeat: repeat;
+            background-color: #F8F5EF; /* 生成りのような色を背景色として指定 */
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-noto">
+    <!-- ヘッダー -->
+    <header class="bg-pure-white fixed top-0 w-full z-50 transition-all duration-300 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="必要画像/吟ねこ.jpg" alt="heyhey Logo" class="h-8 w-8 rounded-full object-cover">
+                        <span class="font-zen font-bold text-kimono-black ml-3">heyheyのホームページ</span>
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="about.html" class="text-brand-green font-medium">詳細プロフィール</a>
+                    <a href="blog.html" class="text-kimono-black hover:text-brand-green transition-colors">個人ブログ</a>
+                    <a href="contact.html" class="text-kimono-black hover:text-brand-green transition-colors">お問い合わせ</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-kimono-black focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-pure-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="about.html" class="block px-3 py-2 text-brand-green font-medium">詳細プロフィール</a>
+                <a href="blog.html" class="block px-3 py-2 text-kimono-black hover:text-brand-green transition-colors">個人ブログ</a>
+                <a href="contact.html" class="block px-3 py-2 text-kimono-black hover:text-brand-green transition-colors">お問い合わせ</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="py-16 pt-32">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm shadow-xl rounded-lg p-8 md:p-12">
+            <!-- ヘッダー -->
+            <div class="text-center mb-12">
+                <h1 class="font-zen text-4xl md:text-5xl font-bold text-kimono-black mb-4 animate-on-scroll">詩吟への想いと活動について</h1>
+            </div>
+
+            <!-- プロフィール画像と基本情報 -->
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12 animate-on-scroll">
+                <div class="flex-shrink-0">
+                    <img src="必要画像/吟ねこ.jpg" alt="heyhey プロフィール写真" class="w-64 h-64 rounded-lg object-cover shadow-lg">
+                </div>
+                <div class="flex-1">
+                    <div class="prose prose-lg max-w-none">
+                        <p class="text-gray-700 text-lg leading-relaxed">
+                            はじめまして。<br>
+                            このページをご覧いただき、ありがとうございます。<br>
+                            詩吟YouTuberとして活動している heyhey です。<br>
+                            私が詩吟と出会ったのは10歳の頃。気づけば25年以上、その奥深い世界に魅了され続けてきました。1988年生まれで、現在はYouTubeチャンネル「詩吟ちゃんねる」を拠点に、詩吟の魅力や楽しさをお伝えしています。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ストーリーセクション -->
+            <section class="mb-12">
+                <div class="prose prose-lg max-w-none">
+                    <h2 class="font-zen text-3xl font-bold text-kimono-black mb-6 animate-on-scroll">活動のきっかけ</h2>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        もともとは趣味の一つとして続けていた詩吟ですが、大きな転機となったのは、2018年に出場した全国コンクールで優勝という貴重な経験をさせていただいたことです。
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        この経験を通して、詩吟の素晴らしさを再確認すると同時に、「もっと多くの方に、この面白さを気軽に知ってもらいたい」という気持ちが強くなりました。特定の流派や難しいイメージにとらわれず、誰もが自由に楽しめるものとして詩吟に触れてほしい。そんな想いから、流派を公表せず、YouTubeでの発信活動を始めました。
+                    </p>
+                    
+                    <h2 class="font-zen text-3xl font-bold text-kimono-black mb-6 mt-12 animate-on-scroll">私が大切にしていること</h2>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        動画やレッスンでお伝えする際に心がけているのは、とにかく「分かりやすく」あることです。私自身、趣味でゴスペルを学んできた経験もあり、伝統的な教え方に少しだけ現代的なボイストレーニングの視点を加えて、自分なりに工夫しながら解説しています。
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        難しい専門用語ではなく、誰もが実践できる言葉で。感情に頼るだけでなく、基本を大切に。見てくださる方が、一歩でも上達を実感できるような内容をお届けできればと思っています。
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        また、私の活動にはもう一つの想いがあります。現在の詩吟の世界に目を向けると、素晴らしい実力をお持ちでも、詩吟だけで活動を続けていくのが難しいという現状があります。もちろん、私よりも優れた吟をされる方は世の中に沢山いらっしゃいます。
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        そうした方々も含め、詩吟を愛する人がもっと自由に活動できるような道を切り拓きたい。そのために、私自身が新しい吟士のあり方を示す一つのモデルになれたらと考えています。最近では、詩吟にAI技術を組み合わせるなど、伝統の世界に新しい可能性を見出すための挑戦も日々続けているところです。
+                    </p>
+                    
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        詩吟は、一見すると少し古風で難しそうに感じるかもしれません。ですが、実はとても自由で、声を出す楽しさを実感できる、生涯の趣味になりうるものです。
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        この活動を通して、皆さんが詩吟に少しでも興味を持つきっかけとなれたら、これほど嬉しいことはありません。よろしければ、温かい目で見守っていただけると幸いです。
+                    </p>
+                </div>
+            </section>
+
+            <!-- お問い合わせCTA -->
+            <section class="text-center animate-on-scroll">
+                <div class="bg-brand-green p-8 rounded-lg">
+                    <h2 class="font-zen text-2xl font-bold text-kimono-black mb-4">お気軽にお問い合わせください</h2>
+                    <p class="text-kimono-black mb-6">
+                        講演依頼、研修のご相談、コラボレーションのご提案など、お気軽にお声がけください。
+                    </p>
+                    <a href="contact.html" class="inline-block bg-kimono-black text-pure-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-medium">
+                        お問い合わせフォームへ
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-kimono-black text-pure-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center">
+                <p class="text-center text-gray-400">© 2025 heyhey. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // モバイルメニューの切り替え
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // スクロール時のヘッダー効果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-lg', 'bg-white/90', 'backdrop-blur-md');
+            } else {
+                header.classList.remove('shadow-lg', 'bg-white/90', 'backdrop-blur-md');
+            }
+        });
+        
+        // スクロールアニメーションの設定
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

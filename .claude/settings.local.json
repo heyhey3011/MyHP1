@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(rm:*)",
+      "Bash(git remote:*)",
+      "Bash(git push:*)",
+      "Bash(ls:*)",
+      "Bash(git pull:*)",
+      "Bash(git stash:*)",
+      "WebFetch(domain:www.srihash.org)",
+      "Bash(dir)"
+    ],
+    "deny": []
+  }
+}
