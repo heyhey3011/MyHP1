@@ -48,30 +48,9 @@
             transform: translateY(0);
         }
         
-        /* 落ち葉アニメーション用のスタイル */
-        .leaf {
-            position: absolute;
-            top: -10%;
-            color: rgba(160, 82, 45, 0.5); /* 主張しすぎない、少し透けた茶色 */
-            font-size: 1rem;
-            user-select: none; /* テキスト選択を無効化 */
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(0vh) rotateZ(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(105vh) rotateZ(720deg);
-                opacity: 0;
-            }
-        }
     </style>
 </head>
 <body class="font-noto">
-    <div id="leaves-container" class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden"></div>
     <!-- ヘッダー -->
     <header class="bg-pure-white fixed top-0 w-full z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -511,24 +490,6 @@
 
         // ページ読み込み時にIntersection Observerを使用してアニメーション開始
         document.addEventListener('DOMContentLoaded', () => {
-            // --- 落ち葉アニメーションの生成 ---
-            const leavesContainer = document.getElementById('leaves-container');
-            const numberOfLeaves = 15; // 画面に表示する葉の数（お好みで調整）
-            const leafTypes = ['🍁', '🍂']; // 使用する葉の種類（絵文字）
-
-            for (let i = 0; i < numberOfLeaves; i++) {
-                const leaf = document.createElement('div');
-                leaf.className = 'leaf';
-                leaf.innerHTML = leafTypes[Math.floor(Math.random() * leafTypes.length)];
-
-                // 各々の葉にランダムなスタイルを適用
-                leaf.style.left = Math.random() * 100 + 'vw'; // 開始位置（横）をランダムに
-                leaf.style.fontSize = (Math.random() * 1.5 + 0.75) + 'rem'; // サイズをランダムに
-                leaf.style.animationDuration = (Math.random() * 8 + 7) + 's'; // 落ちる速度（7〜15秒）をランダムに
-                leaf.style.animationDelay = Math.random() * 5 + 's'; // アニメーション開始タイミングをランダムに
-
-                leavesContainer.appendChild(leaf);
-            }
             
             const subscriberSection = document.getElementById('subscriber-count').closest('.bg-kimono-black\\/10');
             
