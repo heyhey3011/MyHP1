@@ -15,11 +15,22 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: Replace API Key 🔑
+      - name: Generate config.js from Secret 🔑
         run: |
-          # config.js ファイル内の合言葉を、GitHubの金庫にある本物の鍵に置き換える
-          sed -i "s|__YOUTUBE_API_KEY__|${{ secrets.YOUTUBE_API_KEY }}|g" config.js
-          echo "API Key has been replaced."
+          # 以前の差し替え方法から、config.jsを直接生成する方法に変更
+          # これにより、環境差異によるエラーを防ぐ
+          echo "const CONFIG = {" > config.js
+          echo "    YOUTUBE: {" >> config.js
+          echo "        API_KEY: '${{ secrets.YOUTUBE_API_KEY }}'," >> config.js
+          echo "        CHANNEL_ID: 'UCerBISByAKR3KU9CD9Tz5ZQ'," >> config.js
+          echo "        PICKUP_LIST_1_IDS: ['IwBnAvPYRh0', 'DQA-R_DkEhU', '1xL8CaRDU_Q', 'asWq0vICQ-Q']," >> config.js
+          echo "        PICKUP_LIST_2_IDS: ['YIuOy8K5GzY', 'dCA1KRYJKHU', 'ZDSFoBrDqUU', 'BG5kIRN7rns']" >> config.js
+          echo "    }," >> config.js
+          echo "    SECURITY: {" >> config.js
+          echo "        FALLBACK_SUBSCRIBER_COUNT: 2800" >> config.js
+          echo "    }" >> config.js
+          echo "};" >> config.js
+          echo "config.js has been generated successfully."
 
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3
