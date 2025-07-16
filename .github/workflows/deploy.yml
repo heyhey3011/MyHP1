@@ -17,23 +17,28 @@ jobs:
 
       - name: Generate config.js from Secret 🔑
         run: |
-          # 以前の差し替え方法から、config.jsを直接生成する方法に変更
-          # これにより、環境差異によるエラーを防ぐ
-          echo "const CONFIG = {" > config.js
-          echo "    YOUTUBE: {" >> config.js
-          echo "        API_KEY: '${{ secrets.YOUTUBE_API_KEY }}'," >> config.js
-          echo "        CHANNEL_ID: 'UCerBISByAKR3KU9CD9Tz5ZQ'," >> config.js
-          echo "        PICKUP_LIST_1_IDS: ['IwBnAvPYRh0', 'DQA-R_DkEhU', '1xL8CaRDU_Q', 'asWq0vICQ-Q']," >> config.js
-          echo "        PICKUP_LIST_2_IDS: ['YIuOy8K5GzY', 'dCA1KRYJKHU', 'ZDSFoBrDqUU', 'BG5kIRN7rns']" >> config.js
-          echo "    }," >> config.js
-          echo "    SECURITY: {" >> config.js
-          echo "        FALLBACK_SUBSCRIBER_COUNT: 2800" >> config.js
-          echo "    }" >> config.js
-          echo "};" >> config.js
+          # config.jsを直接生成する方法で安定性を向上
+          cat <<EOF > config.js
+          const CONFIG = {
+              YOUTUBE: {
+                  API_KEY: '${{ secrets.YOUTUBE_API_KEY }}',
+                  CHANNEL_ID: 'UCerBISByAKR3KU9CD9Tz5ZQ',
+                  PICKUP_LIST_1_IDS: ['IwBnAvPYRh0', 'DQA-R_DkEhU', '1xL8CaRDU_Q', 'asWq0vICQ-Q'],
+                  PICKUP_LIST_2_IDS: ['YIuOy8K5GzY', 'dCA1KRYJKHU', 'ZDSFoBrDqUU', 'BG5kIRN7rns']
+              },
+              SECURITY: {
+                  FALLBACK_SUBSCRIBER_COUNT: 2800,
+                  FALLBACK_VIDEO_COUNT: 700
+              }
+          };
+          Object.freeze(CONFIG);
+          Object.freeze(CONFIG.YOUTUBE);
+          Object.freeze(CONFIG.SECURITY);
+          EOF
           echo "config.js has been generated successfully."
 
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./ # プロジェクトのルートディレクトリを公開
+          publish_dir: ./

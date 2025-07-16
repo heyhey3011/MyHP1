@@ -343,10 +343,11 @@
         // モバイルメニューの切り替え
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
 
         // スクロール時のヘッダー効果
         window.addEventListener('scroll', () => {
@@ -358,171 +359,59 @@
             }
         });
 
-        // YouTube Data API設定（config.jsから読み込み）
-        const YOUTUBE_API_KEY = CONFIG.YOUTUBE.API_KEY;
-        const CHANNEL_ID = CONFIG.YOUTUBE.CHANNEL_ID;
-        
-        // デバッグ情報
-        console.log('API Key Status:', YOUTUBE_API_KEY === 'DEMO_MODE' ? 'DEMO MODE' : 'CONFIGURED');
-        console.log('Channel ID:', CHANNEL_ID);
-        if (YOUTUBE_API_KEY === 'DEMO_MODE') {
-            console.warn('⚠️ APIキーが設定されていません。config.local.js で設定してください。');
-        }
+        // スクロールアニメーションの設定
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
 
-        // カウントアップアニメーション関数
-        function animateCounter(element, targetValue, duration = 2000) {
-            const startValue = 0;
-            const increment = targetValue / (duration / 16); // 60fps想定
-            let currentValue = startValue;
-            
-            const timer = setInterval(() => {
-                currentValue += increment;
-                if (currentValue >= targetValue) {
-                    currentValue = targetValue;
-                    clearInterval(timer);
-                }
-                element.textContent = Math.floor(currentValue).toLocaleString();
-            }, 16);
-        }
-
-        // YouTube登録者数と動画数を取得してアニメーション表示
-        async function fetchAndDisplaySubscribers() {
-            const subscriberElement = document.getElementById('subscriber-count');
-            const videoElement = document.getElementById('video-count');
-            
-            // APIキーが設定されていない場合の早期リターン
-            if (!YOUTUBE_API_KEY || YOUTUBE_API_KEY === 'YOUR_YOUTUBE_API_KEY_HERE') {
-                console.warn('YouTube API key not configured. Using fallback value.');
-                animateCounter(subscriberElement, CONFIG.SECURITY.FALLBACK_SUBSCRIBER_COUNT);
-                videoElement.textContent = '500+';
-                return;
-            }
-            
-            let attempts = 0;
-            const maxAttempts = CONFIG.SECURITY.RETRY_ATTEMPTS;
-            
-            async function tryFetch() {
-                try {
-                    attempts++;
-                    
-                    // YouTube Data API v3を使用して登録者数と動画数を取得
-                    const response = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${YOUTUBE_API_KEY}`);
-                    
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    
-                    const data = await response.json();
-                    
-                    if (data.error) {
-                        throw new Error(`API error: ${data.error.message}`);
-                    }
-                    
-                    if (data.items && data.items.length > 0) {
-                        const stats = data.items[0].statistics;
-                        const subscriberCount = parseInt(stats.subscriberCount);
-                        const videoCount = parseInt(stats.videoCount);
-                        
-                        // カウントアップアニメーションを実行
-                        animateCounter(subscriberElement, subscriberCount);
-                        animateCounter(videoElement, videoCount);
-                    } else {
-                        throw new Error('No channel data found');
-                    }
-                } catch (error) {
-                    console.error(`YouTube Data API error (attempt ${attempts}/${maxAttempts}):`, error);
-                    
-                    if (attempts < maxAttempts) {
-                        // 再試行
-                        setTimeout(tryFetch, CONFIG.SECURITY.RETRY_DELAY);
-                    } else {
-                        // 最大試行回数に達したらフォールバック値を表示
-                        console.warn('Max retry attempts reached. Using fallback value.');
-                        animateCounter(subscriberElement, CONFIG.SECURITY.FALLBACK_SUBSCRIBER_COUNT);
-                        videoElement.textContent = '500+';
-                    }
-                }
-            }
-            
-            // 初回実行
-            tryFetch();
-        }
-
-        // 最新動画を取得して表示
-        async function fetchAndDisplayLatestVideo() {
-            const iframeElement = document.getElementById('latest-video-iframe');
-            
-            // APIキーが設定されていない場合の早期リターン
-            if (!YOUTUBE_API_KEY || YOUTUBE_API_KEY === 'YOUR_YOUTUBE_API_KEY_HERE') {
-                console.warn('YouTube API key not configured. Using default video.');
-                return;
-            }
-            
-            try {
-                // YouTube Data API v3を使用して最新動画を取得
-                const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&order=date&maxResults=1&type=video&key=${YOUTUBE_API_KEY}`);
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
-                const data = await response.json();
-                
-                if (data.error) {
-                    throw new Error(`API error: ${data.error.message}`);
-                }
-                
-                if (data.items && data.items.length > 0) {
-                    const latestVideo = data.items[0];
-                    const videoId = latestVideo.id.videoId;
-                    
-                    // iframeのsrcを最新動画のURLに更新
-                    iframeElement.src = `https://www.youtube.com/embed/${videoId}`;
-                    iframeElement.title = latestVideo.snippet.title;
-                } else {
-                    console.warn('No videos found');
-                }
-            } catch (error) {
-                console.error('Error fetching latest video:', error);
-                // エラー時はデフォルト動画を維持
-            }
-        }
-
-        // ページ読み込み時にIntersection Observerを使用してアニメーション開始
+        // --- YouTube API連携 ---
         document.addEventListener('DOMContentLoaded', () => {
-            
-            const subscriberSection = document.getElementById('subscriber-count').closest('.bg-kimono-black\\/10');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // セクションが見えるようになったら登録者数を取得・表示
-                        fetchAndDisplaySubscribers();
-                        observer.unobserve(entry.target); // 一度だけ実行
+            // config.jsが読み込まれるのを少し待つ
+            setTimeout(() => {
+                // APIキーとチャンネルIDの設定チェック
+                if (typeof CONFIG === 'undefined' || !CONFIG.YOUTUBE || !CONFIG.YOUTUBE.API_KEY || !CONFIG.YOUTUBE.CHANNEL_ID) {
+                    console.error('CRITICAL: CONFIG object or API Key/Channel ID is not defined.');
+                    return;
+                }
+
+                const { API_KEY, CHANNEL_ID } = CONFIG.YOUTUBE;
+
+                // ----- index.html用の関数 -----
+                async function fetchChannelStats() {
+                    const subscriberElement = document.getElementById('subscriber-count');
+                    const videoElement = document.getElementById('video-count');
+                    if (!subscriberElement || !videoElement) return;
+
+                    try {
+                        const response = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${API_KEY}`);
+                        if (!response.ok) {
+                            const errorData = await response.json();
+                            throw new Error(`API response was not ok: ${response.status}. ${JSON.stringify(errorData.error.message)}`);
+                        }
+                        const data = await response.json();
+                        if (data.items && data.items.length > 0) {
+                            const stats = data.items[0].statistics;
+                            subscriberElement.textContent = parseInt(stats.subscriberCount, 10).toLocaleString();
+                            videoElement.textContent = parseInt(stats.videoCount, 10).toLocaleString();
+                        }
+                    } catch (error) {
+                        console.error('Failed to fetch channel stats:', error);
+                        subscriberElement.textContent = CONFIG.SECURITY.FALLBACK_SUBSCRIBER_COUNT.toLocaleString();
+                        videoElement.textContent = `${CONFIG.SECURITY.FALLBACK_VIDEO_COUNT}+`;
                     }
-                });
-            }, {
-                threshold: 0.5 // 50%見えたらトリガー
-            });
-            
-            observer.observe(subscriberSection);
-            
-            // 最新動画を取得して表示
-            fetchAndDisplayLatestVideo();
-            
-            // スクロールアニメーションの設定
-            const animationObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animated');
-                        animationObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            document.querySelectorAll('.animate-on-scroll').forEach(el => {
-                animationObserver.observe(el);
-            });
+                }
+
+                // ページに応じて必要な関数を実行
+                fetchChannelStats(); // for index.html
+            }, 100); // 100ミリ秒待機
         });
     </script>
 </body>
