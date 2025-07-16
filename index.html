@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googleapis.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.googleapis.com; frame-src https://www.youtube.com; upgrade-insecure-requests;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.googleapis.com; frame-src https://www.youtube.com; upgrade-insecure-requests;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <title>heyhey - 公式ポートフォリオサイト</title>
-    <script src="https://cdn.jsdelivr.net/npm/countup.js@2.0.7/dist/countUp.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -400,19 +399,13 @@
                         const data = await response.json();
                         if (data.items && data.items.length > 0) {
                             const stats = data.items[0].statistics;
-                            const options = { duration: 2.5, separator: ',' };
-                            const subCountUp = new CountUp(subscriberElement, parseInt(stats.subscriberCount, 10), options);
-                            const vidCountUp = new CountUp(videoElement, parseInt(stats.videoCount, 10), options);
-                            if (!subCountUp.error) subCountUp.start(); else console.error(subCountUp.error);
-                            if (!vidCountUp.error) vidCountUp.start(); else console.error(vidCountUp.error);
+                            subscriberElement.textContent = parseInt(stats.subscriberCount, 10).toLocaleString();
+                            videoElement.textContent = parseInt(stats.videoCount, 10).toLocaleString();
                         }
                     } catch (error) {
                         console.error('Failed to fetch channel stats:', error);
-                        const options = { duration: 2.5, separator: ',' };
-                        const subCountUp = new CountUp(subscriberElement, CONFIG.SECURITY.FALLBACK_SUBSCRIBER_COUNT, options);
-                        const vidCountUp = new CountUp(videoElement, CONFIG.SECURITY.FALLBACK_VIDEO_COUNT, { ...options, suffix: '+' });
-                        if (!subCountUp.error) subCountUp.start(); else console.error(subCountUp.error);
-                        if (!vidCountUp.error) vidCountUp.start(); else console.error(vidCountUp.error);
+                        subscriberElement.textContent = CONFIG.SECURITY.FALLBACK_SUBSCRIBER_COUNT.toLocaleString();
+                        videoElement.textContent = `${CONFIG.SECURITY.FALLBACK_VIDEO_COUNT}+`;
                     }
                 }
 
