@@ -6,6 +6,10 @@ const CONFIG = {
         PICKUP_LIST_2_IDS: ['YIuOy8K5GzY', 'dCA1KRYJKHU', 'ZDSFoBrDqUU', 'BG5kIRN7rns']
     },
     SECURITY: {
-        FALLBACK_SUBSCRIBER_COUNT: 2800
+        FALLBACK_SUBSCRIBER_COUNT: 2800,
+        FALLBACK_VIDEO_COUNT: 700
     }
 };
+Object.freeze(CONFIG);
+Object.freeze(CONFIG.YOUTUBE);
+Object.freeze(CONFIG.SECURITY);
